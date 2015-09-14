@@ -41,7 +41,7 @@
     <Compile Include="Ball.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="SpriteObject.cs" />
+    <Compile Include="GameObject.cs" />
     <Compile Include="Keyboard.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace OlmoSpil
 {
@@ -11,11 +12,33 @@ namespace OlmoSpil
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        private static List<GameObject> allObjects;
+        private static List<GameObject> addObjects;
+        private static List<GameObject> removeObjects;
+
+        public static List<GameObject> RemoveObjects
+        {
+            get { return Game1.removeObjects; }
+            set { Game1.removeObjects = value; }
+        }
+        public static List<GameObject> AddObjects
+        {
+            get { return Game1.addObjects; }
+            set { Game1.addObjects = value; }
+        }
+        public static List<GameObject> AllObjects
+        {
+            get { return Game1.allObjects; }
+            set { Game1.allObjects = value; }
+        }
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            allObjects = new List<GameObject>();
+            addObjects = new List<GameObject>();
+            removeObjects = new List<GameObject>();
         }
 
         /// <summary>
@@ -27,6 +50,7 @@ namespace OlmoSpil
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            Window.Title = "Pong for 6";
 
             base.Initialize();
         }
@@ -41,6 +65,10 @@ namespace OlmoSpil
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            foreach (GameObject go in AllObjects)
+            {
+                go.LoadContent(Content);
+            }
         }
 
         /// <summary>
@@ -63,7 +91,21 @@ namespace OlmoSpil
                 Exit();
 
             // TODO: Add your update logic here
-
+            foreach (GameObject go in AddObjects)
+            {
+                AllObjects.Add(go);
+                go.LoadContent(Content);
+            }
+            foreach (GameObject go in RemoveObjects)
+            {
+                AllObjects.Remove(go);
+            }
+            AddObjects.Clear();
+            RemoveObjects.Clear();
+            foreach (GameObject go in AllObjects)
+            {
+                go.Update(gameTime);
+            }
             base.Update(gameTime);
         }
 
@@ -76,6 +118,13 @@ namespace OlmoSpil
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+
+            spriteBatch.Begin();
+            foreach (GameObject go in AllObjects)
+            {
+                go.Draw(spriteBatch);
+            }
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
