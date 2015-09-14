@@ -11,7 +11,7 @@ namespace OlmoSpil
     abstract class GameObject
     {
 
-        #region Variables
+        #region Fields
         /// <summary>
         /// The GameObject's texture
         /// </summary>
@@ -20,7 +20,7 @@ namespace OlmoSpil
         /// <summary>
         /// The GameObject's rectangle this is used when drawing the sprite
         /// </summary>
-        private Rectangle[] rectangle;
+        private Rectangle[] rectangles;
 
         /// <summary>
         /// The GameObject's position
@@ -66,6 +66,26 @@ namespace OlmoSpil
         /// </summary>
         protected float speed;
 
+        /// <summary>
+        /// Number of frames
+        /// </summary>
+        private int frames;
+
+        /// <summary>
+        /// Index used while running though an animation
+        /// </summary>
+        private int currentIndex;
+
+        /// <summary>
+        /// Time passed since last frame change
+        /// </summary>
+        private float timeElapsed;
+
+        /// <summary>
+        /// The animations fps
+        /// </summary>
+        protected float fps;
+
         #endregion
 
         #region Methodes
@@ -77,15 +97,25 @@ namespace OlmoSpil
         /// <param name="content"></Sets the texture if an Object and the rectanle around the texture>
         public virtual void Loadcontent(ContentManager content)
         {
-            #region Place in override Loadcontent
+            #region Place THIS in override Loadcontent
             //Loads the object's texture
             texture = content.Load<Texture2D>(@"");  // <-- Place the fileLocation of the sprite f.x. (@"apple");
 
             //Loads the parameters of the gameObject
             //base.LoadContent(content);
             #endregion
-            //Sets the size and position of the object
-            rectangle = new Rectangle(0, 0, texture.Width, texture.Height);
+
+            //Calculates the width of the frame
+            int width = texture.Width / frames;
+
+            //Instantiates the rectangle's array
+            rectangles = new Rectangle[frames];
+
+            //Creates the rectangles
+            for (int i = 0; i < frames; i++)
+            {
+                rectangles[i] = new Rectangle(i * width, 0, width, texture.Height);
+            }
         }
 
         /// <summary>
@@ -95,9 +125,28 @@ namespace OlmoSpil
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             //Draws the SpriteObject, with all its parameters
-            spriteBatch.Draw(texture, position, rectangle, color, 0, origin, scale, effect, layer);
+            spriteBatch.Draw(texture, position, rectangles[currentIndex], color, 0, origin, scale, effect, layer);
         }
 
+        /// <summary>
+        /// Keeps track of the current game time and the current index of the animations
+        /// </summary>
+        /// <param name="gameTime"></param>
+        public virtual void Update(GameTime gameTime)
+        {
+            //Adds time that have passed since last update
+            timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            //Calculates the current index
+            currentIndex = (int)(timeElapsed * fps);
+
+            //Checks if we need to restart the animation
+            if (currentIndex > rectangles.Length -1)
+            {
+                timeElapsed = 0;
+                currentIndex = 0;
+            }
+        }
 
 
         #endregion
@@ -106,10 +155,14 @@ namespace OlmoSpil
         /// The SpriteObject's constructor
         /// </summary>
         /// <param name="position"></Initial position of the object>
-        public GameObject(Vector2 position)
+        public GameObject(Vector2 position, int frames)
         { 
             //The initial position of the object
             this.position = position;
+            
+            //The number of frames for the GameObject
+            this.frames = frames;
+
         }
         
     }
