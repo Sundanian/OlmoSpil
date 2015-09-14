@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Animation.cs" />
     <Compile Include="Ball.cs" />
+    <Compile Include="Circle.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
@@ -64,14 +65,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Sprites\CollisionTexture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Lyd\" />
-    <Folder Include="Sprites\" />
+    <Folder Include="Content\Lyd\" />
   </ItemGroup>
   <!-- Specify the search path explicitly so the ResolveAssemblyReferences task picks the right ones -->
   <Target Name="BeforeResolveReferences">

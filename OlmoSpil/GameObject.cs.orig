@@ -112,17 +112,17 @@ namespace OlmoSpil
         /// </summary>
         protected float fps;
 
-		/// <summary>
+        /// <summary>
+<<<<<<< HEAD
+        /// For collisionbox
+        /// </summary>
+        private Texture2D boxtexture;
+=======
         /// Dictionary, that contains all animations
         /// </summary>
         private Dictionary<string, Animation> animations = new Dictionary<string, Animation>();
 
-        /// <summary>
-        /// For collisionbox
-        /// </summary>
-        private Texture2D boxtexture;
-
-
+>>>>>>> a62198704255aa31e58d186f45308cd6de18db21
         #endregion
 
         /// <summary>
@@ -162,13 +162,21 @@ namespace OlmoSpil
             ////Instantiates the rectangle's array
             //rectangles = new Rectangle[frames];
 
+<<<<<<< HEAD
+            //Creates the rectangles
+            for (int i = 0; i < frames; i++)
+            {
+                rectangles[i] = new Rectangle(i * width, 0, width, texture.Height);
+            }
+
+            boxtexture = content.Load<Texture2D>(@"CollisionTexture");
+=======
             ////Creates the rectangles
             //for (int i = 0; i < frames; i++)
             //{
             //    rectangles[i] = new Rectangle(i * width, 0, width, texture.Height);
             //}
-
-            boxtexture = content.Load<Texture2D>(@"CollisionTexture");
+>>>>>>> a62198704255aa31e58d186f45308cd6de18db21
         }
 
         /// <summary>
@@ -210,6 +218,8 @@ namespace OlmoSpil
             CheckCollision();
         }
 
+<<<<<<< HEAD
+=======
         /// <summary>
         /// Creates an animation
         /// </summary>
@@ -234,14 +244,30 @@ namespace OlmoSpil
              * Fps, which controls how many frames will be played per second, which is 1
              */
         }
+
+        #endregion
+
+>>>>>>> a62198704255aa31e58d186f45308cd6de18db21
         /// <summary>
         /// Returns true, if the GameObject is colliding with the other GameObject
         /// </summary>
+<<<<<<< HEAD
         /// <param name="other">GameObject to check collising with</param>
         /// <returns></returns>
         public bool IsCollidingWith(GameObject other)
         {
             return CollisionCircle.IntersectsWith(other.CollisionCircle);
+=======
+        /// <param name="position"></Initial position of the object>
+        public GameObject(Vector2 position, int frames)
+        { 
+            //The initial position of the object
+            this.position = position;
+            
+            ////The number of frames for the GameObject
+            //this.frames = frames;
+
+>>>>>>> a62198704255aa31e58d186f45308cd6de18db21
         }
         /// <summary>
         /// Checks if an object is colliding with another Object
