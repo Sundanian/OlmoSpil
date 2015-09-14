@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OlmoSpil
 {
-    class Ball : SpriteObject
+    class Ball : GameObject
     {
     }
 }
