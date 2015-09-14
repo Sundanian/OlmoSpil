@@ -8,10 +8,36 @@ using Microsoft.Xna.Framework.Content;
 
 namespace OlmoSpil
 {
-    abstract class GameObject
+    public abstract class GameObject
     {
 
         #region Fields
+        /// <summary>
+        /// Collision circle that fits the object
+        /// </summary>
+        public Circle CollisionCircle
+        {
+            get
+            {
+                float radius = this.texture.Width / 2;
+
+                return new Circle(position, radius);
+            }
+        }
+
+        /// <summary>
+        /// Collision circle for shoot funktionality
+        /// </summary>
+        public Circle ShootCollisionCircle
+        {
+            get
+            {
+                float radius = this.texture.Width / 2 + 10;
+
+                return new Circle(new Vector2(this.position.X - 10, this.position.Y - 10), radius);
+            }
+        }
+
         /// <summary>
         /// The GameObject's texture
         /// </summary>
@@ -86,7 +112,25 @@ namespace OlmoSpil
         /// </summary>
         protected float fps;
 
+        /// <summary>
+        /// For collisionbox
+        /// </summary>
+        private Texture2D boxtexture;
         #endregion
+
+        /// <summary>
+        /// The SpriteObject's constructor
+        /// </summary>
+        /// <param name="position"></Initial position of the object>
+        public GameObject(Vector2 position, int frames)
+        {
+            //The initial position of the object
+            this.position = position;
+
+            //The number of frames for the GameObject
+            this.frames = frames;
+
+        }
 
         #region Methodes
 
@@ -116,6 +160,8 @@ namespace OlmoSpil
             {
                 rectangles[i] = new Rectangle(i * width, 0, width, texture.Height);
             }
+
+            boxtexture = content.Load<Texture2D>(@"CollisionTexture");
         }
 
         /// <summary>
@@ -126,6 +172,14 @@ namespace OlmoSpil
         {
             //Draws the SpriteObject, with all its parameters
             spriteBatch.Draw(texture, position, rectangles[currentIndex], color, 0, origin, scale, effect, layer);
+            
+//#if DEBUG
+//            System.Drawing.Graphics dc = new System.Drawing.Graphics();
+//            dc.DrawEllipse(new System.Drawing.Pen(System.Drawing.Brushes.Red), CollisionCircle.Center.X - CollisionCircle.Radius, CollisionCircle.Center.Y - CollisionCircle.Radius, CollisionCircle.Radius * 2, CollisionCircle.Radius * 2);
+//            //spriteBatch.Draw(boxtexture, CollisionCircle, Color.Red);
+//            //spriteBatch.Draw(boxtexture, ShootCollisionCircle, Color.Purple);'
+//            spriteBatch.
+//#endif
         }
 
         /// <summary>
@@ -146,24 +200,37 @@ namespace OlmoSpil
                 timeElapsed = 0;
                 currentIndex = 0;
             }
+            CheckCollision();
         }
-
-
-        #endregion
 
         /// <summary>
-        /// The SpriteObject's constructor
+        /// Returns true, if the GameObject is colliding with the other GameObject
         /// </summary>
-        /// <param name="position"></Initial position of the object>
-        public GameObject(Vector2 position, int frames)
-        { 
-            //The initial position of the object
-            this.position = position;
-            
-            //The number of frames for the GameObject
-            this.frames = frames;
-
+        /// <param name="other">GameObject to check collising with</param>
+        /// <returns></returns>
+        public bool IsCollidingWith(GameObject other)
+        {
+            return CollisionCircle.IntersectsWith(other.CollisionCircle);
         }
-        
+        /// <summary>
+        /// Checks if an object is colliding with another Object
+        /// </summary>
+        private void CheckCollision()
+        {
+            foreach (GameObject go in Game1.AllObjects)
+            {
+                //This prevents an object from colliding with itself.
+                if (go != this)
+                {
+                    if (this.IsCollidingWith(go))
+                    {
+                        //Collsion
+                        OnCollision(go);
+                    }
+                }
+            }
+        }
+        public abstract void OnCollision(GameObject other);
+        #endregion
     }
 }
