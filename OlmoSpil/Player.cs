@@ -15,5 +15,9 @@ namespace OlmoSpil
         public override void OnCollision(GameObject other)
         {
         }
+
+        protected override void CreateAnimations(Microsoft.Xna.Framework.Graphics.Texture2D texture)
+        {
+        }
     }
 }

@@ -10,7 +10,13 @@ namespace OlmoSpil
     /// </summary>
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
+        private static GraphicsDeviceManager graphics;
+
+        public static GraphicsDeviceManager Graphics
+        {
+            get { return Game1.graphics; }
+            set { Game1.graphics = value; }
+        }
         SpriteBatch spriteBatch;
         private static List<GameObject> allObjects;
         private static List<GameObject> addObjects;
@@ -69,6 +75,9 @@ namespace OlmoSpil
             {
                 go.Loadcontent(Content);
             }
+            Ball ball = new Ball(new Vector2(90, 90), 1);
+            AddObjects.Add(ball);
+            
         }
 
         /// <summary>
