@@ -86,6 +86,11 @@ namespace OlmoSpil
         /// </summary>
         protected float fps;
 
+        /// <summary>
+        /// Dictionary, that contains all animations
+        /// </summary>
+        private Dictionary<string, Animation> animations = new Dictionary<string, Animation>();
+
         #endregion
 
         #region Methodes
@@ -105,17 +110,17 @@ namespace OlmoSpil
             //base.LoadContent(content);
             #endregion
 
-            //Calculates the width of the frame
-            int width = texture.Width / frames;
+            ////Calculates the width of the frame
+            //int width = texture.Width / frames;
 
-            //Instantiates the rectangle's array
-            rectangles = new Rectangle[frames];
+            ////Instantiates the rectangle's array
+            //rectangles = new Rectangle[frames];
 
-            //Creates the rectangles
-            for (int i = 0; i < frames; i++)
-            {
-                rectangles[i] = new Rectangle(i * width, 0, width, texture.Height);
-            }
+            ////Creates the rectangles
+            //for (int i = 0; i < frames; i++)
+            //{
+            //    rectangles[i] = new Rectangle(i * width, 0, width, texture.Height);
+            //}
         }
 
         /// <summary>
@@ -148,6 +153,30 @@ namespace OlmoSpil
             }
         }
 
+        /// <summary>
+        /// Creates an animation
+        /// </summary>
+        /// <param name="name">Animation name</param>
+        /// <param name="frames">Number of frames in the animation</param>
+        /// <param name="yPos">Y position on the sprite sheet in pixels</param>
+        /// <param name="xStartFrame">X position on the sprite sheet in frames</param>
+        /// <param name="width">The width of each frame</param>
+        /// <param name="height">The height of each frame</param>
+        /// <param name="offset">Animation offset (can be used to align animations)</param>
+        /// <param name="fps">Animation fps</param>
+        protected void CreateAnimation(string name, int frames, int yPos, int xStartFrame, int width, int height, Vector2 offset, float fps)
+        {
+            animations.Add(name, new Animation(frames, yPos, xStartFrame, width, height, offset, fps));
+            /* Sample
+             * CreateAnimation("Left", 1, 50, 12, 50, 50, Vector2.Zero, 1);
+             * Makes an animation with the sprites in "Left", which has only 1 frame, which starts in position 50 on the y-axis
+             * X's start position, which is at 12 frames
+             * The width of the sprite, which is 50
+             * The height if the sprite, which is 50
+             * The offset, to which the animation will run from, which is set to the Vector2.zero, which runs on the privious frame
+             * Fps, which controls how many frames will be played per second, which is 1
+             */
+        }
 
         #endregion
 
@@ -160,8 +189,8 @@ namespace OlmoSpil
             //The initial position of the object
             this.position = position;
             
-            //The number of frames for the GameObject
-            this.frames = frames;
+            ////The number of frames for the GameObject
+            //this.frames = frames;
 
         }
         
