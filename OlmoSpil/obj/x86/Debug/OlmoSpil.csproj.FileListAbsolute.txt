@@ -1,8 +1,12 @@
+<<<<<<< HEAD
+C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\obj\x86\Debug\OlmoSpil.csprojResolveAssemblyReference.cache
+=======
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.csprojResolveAssemblyReference.cache
+C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\WindowsGL\Debug\Content\Sprites\CollisionTexture.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\WindowsGL\Debug\OlmoSpil.exe
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\WindowsGL\Debug\OlmoSpil.pdb
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\WindowsGL\Debug\MonoGame.Framework.dll
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\WindowsGL\Debug\OpenTK.dll
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.exe
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.pdb
-C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\WindowsGL\Debug\Content\Sprites\redcross.jpeg
+>>>>>>> 3b7fad487af3139d7525e18f5cb1c9acd16243b7
