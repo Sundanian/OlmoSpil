@@ -67,7 +67,7 @@ namespace OlmoSpil
             // TODO: use this.Content to load your game content here
             foreach (GameObject go in AllObjects)
             {
-                go.LoadContent(Content);
+                go.Loadcontent(Content);
             }
         }
 
@@ -87,14 +87,14 @@ namespace OlmoSpil
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            //    Exit();
 
             // TODO: Add your update logic here
             foreach (GameObject go in AddObjects)
             {
                 AllObjects.Add(go);
-                go.LoadContent(Content);
+                go.Loadcontent(Content);
             }
             foreach (GameObject go in RemoveObjects)
             {
