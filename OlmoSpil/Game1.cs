@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 
 namespace OlmoSpil
@@ -46,6 +47,7 @@ namespace OlmoSpil
             set { Game1.powerUpSpawned = value; }
         }
 
+        private static Random rnd = new Random();
 
         public Game1()
         {
@@ -164,6 +166,55 @@ namespace OlmoSpil
 
             base.Draw(gameTime);
         }
-        //Din metode mangler Skinke
+
+        public void SpawnPowerUp()
+        {
+            if (powerUpSpawned == false) //If there is NOT a powerUp on the field
+            {
+                int x = rnd.Next(0, 1000);
+                if (x <= 10)
+                {
+                    int choosePower = rnd.Next(1, 4);
+                    float xCoord = rnd.Next(100, 250); // Should be set to be within the screen/Level
+                    float yCoord = rnd.Next(100, 250); // Should be set to be within the screen/Level
+                    Vector2 position = new Vector2(xCoord, yCoord);
+                    switch (choosePower)
+                    {
+
+                            /*addObjects.add --> Adds a new GameObject
+                             * new PowerUp(Path to the file, position where it will spawn, number of frames, PowerType)
+                             * powerUpSpawned --> Set the bool to true, so only ONE powerUp can be in the field at a time
+                             */
+                        case 1:
+                            {
+                                addObjects.Add(new PowerUp(@"PowerUp_Lightning.png", position, 1, PowerType.Speed));
+                                powerUpSpawned = true;
+                            }
+                            break;
+                        case 2:
+                            {
+                                addObjects.Add(new PowerUp(@"PowerUp_Heart.png", position, 1, PowerType.StickyBall));
+                                powerUpSpawned = true;
+                            }
+                            break;
+                        case 3:
+                            {
+                                addObjects.Add(new PowerUp(@"PowerUp_MultiBall.png", position, 1, PowerType.MultiBall));
+                                powerUpSpawned = true;
+                            }
+                            break;
+                        case 4:
+                            {
+                                addObjects.Add(new PowerUp(@"PowerUp_DeadBall_Skull.png", position, 1, PowerType.DeadBall));
+                                powerUpSpawned = true;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                
+            }
+        }
     }
 }

@@ -10,8 +10,7 @@ namespace OlmoSpil
 {
     public abstract class GameObject
     {
-
-        #region Fields
+        private Vector2 offset;
         /// <summary>
         /// Collision circle that fits the object
         /// </summary>
@@ -41,7 +40,7 @@ namespace OlmoSpil
         /// <summary>
         /// The GameObject's texture
         /// </summary>
-        private Texture2D texture;
+        protected Texture2D texture;
 
         /// <summary>
         /// The GameObject's rectangle this is used when drawing the sprite
@@ -112,18 +111,17 @@ namespace OlmoSpil
         /// </summary>
         protected float fps;
 
-        /// <summary>
-<<<<<<< HEAD
-        /// For collisionbox
-        /// </summary>
-        private Texture2D boxtexture;
-=======
+		/// <summary>
         /// Dictionary, that contains all animations
         /// </summary>
         private Dictionary<string, Animation> animations = new Dictionary<string, Animation>();
 
->>>>>>> a62198704255aa31e58d186f45308cd6de18db21
-        #endregion
+        public Vector2 Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
+
 
         /// <summary>
         /// The SpriteObject's constructor
@@ -139,7 +137,6 @@ namespace OlmoSpil
 
         }
 
-        #region Methodes
 
         /// <summary>
         /// Loads the SpriteObject's content
@@ -150,7 +147,7 @@ namespace OlmoSpil
         {
             #region Place THIS in override Loadcontent
             //Loads the object's texture
-            texture = content.Load<Texture2D>(@"");  // <-- Place the fileLocation of the sprite f.x. (@"apple");
+            //texture = content.Load<Texture2D>(@"");  // <-- Place the fileLocation of the sprite f.x. (@"apple");
 
             //Loads the parameters of the gameObject
             //base.LoadContent(content);
@@ -162,21 +159,13 @@ namespace OlmoSpil
             ////Instantiates the rectangle's array
             //rectangles = new Rectangle[frames];
 
-<<<<<<< HEAD
-            //Creates the rectangles
-            for (int i = 0; i < frames; i++)
-            {
-                rectangles[i] = new Rectangle(i * width, 0, width, texture.Height);
-            }
-
-            boxtexture = content.Load<Texture2D>(@"CollisionTexture");
-=======
             ////Creates the rectangles
             //for (int i = 0; i < frames; i++)
             //{
             //    rectangles[i] = new Rectangle(i * width, 0, width, texture.Height);
             //}
->>>>>>> a62198704255aa31e58d186f45308cd6de18db21
+
+            CreateAnimations(texture);
         }
 
         /// <summary>
@@ -188,13 +177,10 @@ namespace OlmoSpil
             //Draws the SpriteObject, with all its parameters
             spriteBatch.Draw(texture, position, rectangles[currentIndex], color, 0, origin, scale, effect, layer);
             
-//#if DEBUG
-//            System.Drawing.Graphics dc = new System.Drawing.Graphics();
-//            dc.DrawEllipse(new System.Drawing.Pen(System.Drawing.Brushes.Red), CollisionCircle.Center.X - CollisionCircle.Radius, CollisionCircle.Center.Y - CollisionCircle.Radius, CollisionCircle.Radius * 2, CollisionCircle.Radius * 2);
-//            //spriteBatch.Draw(boxtexture, CollisionCircle, Color.Red);
-//            //spriteBatch.Draw(boxtexture, ShootCollisionCircle, Color.Purple);'
-//            spriteBatch.
-//#endif
+#if DEBUG
+            Texture2D circle = CreateCircle((int)CollisionCircle.Radius);
+            spriteBatch.Draw(circle, Position, Color.Red);
+#endif
         }
 
         /// <summary>
@@ -218,8 +204,6 @@ namespace OlmoSpil
             CheckCollision();
         }
 
-<<<<<<< HEAD
-=======
         /// <summary>
         /// Creates an animation
         /// </summary>
@@ -244,30 +228,14 @@ namespace OlmoSpil
              * Fps, which controls how many frames will be played per second, which is 1
              */
         }
-
-        #endregion
-
->>>>>>> a62198704255aa31e58d186f45308cd6de18db21
         /// <summary>
         /// Returns true, if the GameObject is colliding with the other GameObject
         /// </summary>
-<<<<<<< HEAD
         /// <param name="other">GameObject to check collising with</param>
         /// <returns></returns>
         public bool IsCollidingWith(GameObject other)
         {
             return CollisionCircle.IntersectsWith(other.CollisionCircle);
-=======
-        /// <param name="position"></Initial position of the object>
-        public GameObject(Vector2 position, int frames)
-        { 
-            //The initial position of the object
-            this.position = position;
-            
-            ////The number of frames for the GameObject
-            //this.frames = frames;
-
->>>>>>> a62198704255aa31e58d186f45308cd6de18db21
         }
         /// <summary>
         /// Checks if an object is colliding with another Object
@@ -288,6 +256,55 @@ namespace OlmoSpil
             }
         }
         public abstract void OnCollision(GameObject other);
+        /// <summary>
+        /// Creates a circle from the radius specified.
+        /// </summary>
+        /// <param name="radius"></param>
+        /// <returns></returns>
+        public Texture2D CreateCircle(int radius)
+        {
+            int outerRadius = radius * 2 + 2; // So circle doesn't go out of bounds
+            Texture2D texture = new Texture2D(Game1.Graphics.GraphicsDevice, outerRadius, outerRadius);
+
+            Color[] data = new Color[outerRadius * outerRadius];
+
+            // Colour the entire texture transparent first.
+            for (int i = 0; i < data.Length; i++)
+                data[i] = Color.Transparent;
+
+            // Work out the minimum step necessary using trigonometry + sine approximation.
+            double angleStep = 1f / radius;
+
+            for (double angle = 0; angle < Math.PI * 2; angle += angleStep)
+            {
+                // Use the parametric definition of a circle: http://en.wikipedia.org/wiki/Circle#Cartesian_coordinates
+                int x = (int)Math.Round(radius + radius * Math.Cos(angle));
+                int y = (int)Math.Round(radius + radius * Math.Sin(angle));
+
+                data[y * outerRadius + x + 1] = Color.White;
+            }
+
+            texture.SetData(data);
+            return texture;
+        }
+        /// <summary>
+        /// Not to be confused with CreateAnimation. No -s.
+        /// Use the CreateAnimation method in here to create animations.
+        /// </summary>
+        /// <param name="texture"></param>
+        protected abstract void CreateAnimations(Texture2D texture);
+        
+        protected void PlayAnimation(string name)
+        {
+            rectangles = animations[name].Rectangles;
+            offset = animations[name].Offset;
+            fps = animations[name].Fps;
+        }
+
+<<<<<<< HEAD
+=======
+
         #endregion
+>>>>>>> 6908e2c610fa01eaced7cfb01c731fac0525592e
     }
 }

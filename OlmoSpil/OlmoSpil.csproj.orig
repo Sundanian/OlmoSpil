@@ -69,6 +69,7 @@
     <Content Include="Content\Sprites\Ball.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+<<<<<<< HEAD
     <Content Include="Content\Sprites\Player_Blue.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -84,10 +85,12 @@
     <Content Include="Content\Sprites\Post.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+=======
     <Content Include="Content\Sprites\PowerUp_DeadBall_Skull.png" />
     <Content Include="Content\Sprites\PowerUp_Heart.png" />
     <Content Include="Content\Sprites\PowerUp_Lightning.png" />
     <Content Include="Content\Sprites\PowerUp_MultiBall.png" />
+>>>>>>> 6908e2c610fa01eaced7cfb01c731fac0525592e
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
