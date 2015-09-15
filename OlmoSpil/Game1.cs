@@ -91,7 +91,7 @@ namespace OlmoSpil
                 Ball ball = new Ball(new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), 1);
                 AddObjects.Add(ball);
             }
-            Player p = new Player(new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), 1);
+            Player p = new Player(new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), 1, "Bob", 1, PlayerId.Player1, 1);
             AddObjects.Add(p);
             #region Level
             //Center
