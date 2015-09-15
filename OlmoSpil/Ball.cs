@@ -22,7 +22,7 @@ namespace OlmoSpil
         }
         public override void OnCollision(GameObject other)
         {
-            if (other is Ball || other is Player) // If the obj is Ball or Player
+            if (other is Ball || other is Player || other is Post) // If the obj is Ball or Player
             {
                 if (this.position == other.Position)
                 {
@@ -53,7 +53,11 @@ namespace OlmoSpil
                 float hyp = (float)Math.Sqrt(tempTotalDiff);
 
                 //Scale
-                float sizeFactor = 5 / hyp;
+                float sizeFactor = 3 / hyp;
+                if (other is Player || other is Post)
+                {
+                    sizeFactor = 4 / hyp;
+                }
 
                 //ajusts the x and y speed to the ball
                 this.xSpeed = xDiff * sizeFactor;
@@ -68,62 +72,62 @@ namespace OlmoSpil
         }
         public override void Update(GameTime gameTime)
         {
-                if (xSpeed != 0)
+            if (xSpeed != 0)
+            {
+                this.position.X += xSpeed;
+                if (xSpeed > 0)
                 {
-                    this.position.X += xSpeed;
-                    if (xSpeed > 0)
+                    //for at farten ikke ender med aldrig at blive 0
+                    if (xSpeed < 0.09)
                     {
-                        //for at farten ikke ender med aldrig at blive 0
-                        if (xSpeed < 0.09)
-                        {
-                            xSpeed -= xSpeed;
-                        }
-                        else
-                        {
-                            xSpeed -= 0.1f;
-                        }
+                        xSpeed -= xSpeed;
                     }
                     else
                     {
-                        //for at farten ikke ender med aldrig at blive 0
-                        if (xSpeed > -0.09)
-                        {
-                            xSpeed += xSpeed;
-                        }
-                        else
-                        {
-                            xSpeed += 0.1f;
-                        }
+                        xSpeed -= 0.1f;
                     }
                 }
-                if (ySpeed != 0)
+                else
                 {
-                    this.position.Y += ySpeed;
-                    if (ySpeed > 0)
+                    //for at farten ikke ender med aldrig at blive 0
+                    if (xSpeed > -0.09)
                     {
-                        //for at farten ikke ender med aldrig at blive 0
-                        if (ySpeed < 0.09)
-                        {
-                            ySpeed -= ySpeed;
-                        }
-                        else
-                        {
-                            ySpeed -= 0.1f;
-                        }
+                        xSpeed += xSpeed;
                     }
                     else
                     {
-                        //for at farten ikke ender med aldrig at blive 0
-                        if (ySpeed > -0.09)
-                        {
-                            ySpeed += ySpeed;
-                        }
-                        else
-                        {
-                            ySpeed += 0.1f;
-                        }
+                        xSpeed += 0.1f;
                     }
                 }
+            }
+            if (ySpeed != 0)
+            {
+                this.position.Y += ySpeed;
+                if (ySpeed > 0)
+                {
+                    //for at farten ikke ender med aldrig at blive 0
+                    if (ySpeed < 0.09)
+                    {
+                        ySpeed -= ySpeed;
+                    }
+                    else
+                    {
+                        ySpeed -= 0.1f;
+                    }
+                }
+                else
+                {
+                    //for at farten ikke ender med aldrig at blive 0
+                    if (ySpeed > -0.09)
+                    {
+                        ySpeed += ySpeed;
+                    }
+                    else
+                    {
+                        ySpeed += 0.1f;
+                    }
+                }
+            }
             base.Update(gameTime);
         }
     }

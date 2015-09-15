@@ -89,6 +89,22 @@ namespace OlmoSpil
                 Ball ball = new Ball(new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), 1);
                 AddObjects.Add(ball);
             }
+            Player p = new Player(new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), 1);
+            AddObjects.Add(p);
+            #region Level
+            //Center
+            Post g = new Post(new Vector2(GraphicsDevice.Viewport.Width / 2 - 20, GraphicsDevice.Viewport.Height / 2 - 20), 1);
+            AddObjects.Add(g);
+
+            g = new Post(new Vector2(GraphicsDevice.Viewport.Width / 2 - 20 - 200, GraphicsDevice.Viewport.Height / 2 - 20 - 200), 1);
+            AddObjects.Add(g);
+            g = new Post(new Vector2(GraphicsDevice.Viewport.Width / 2 - 20 + 200, GraphicsDevice.Viewport.Height / 2 - 20 - 200), 1);
+            AddObjects.Add(g);
+            g = new Post(new Vector2(GraphicsDevice.Viewport.Width / 2 - 20 - 200, GraphicsDevice.Viewport.Height / 2 - 20 + 200), 1);
+            AddObjects.Add(g);
+            g = new Post(new Vector2(GraphicsDevice.Viewport.Width / 2 - 20 + 200, GraphicsDevice.Viewport.Height / 2 - 20 + 200), 1);
+            AddObjects.Add(g);
+            #endregion
         }
 
         /// <summary>

@@ -10,8 +10,6 @@ namespace OlmoSpil
 {
     public abstract class GameObject
     {
-
-        #region Fields
         private Vector2 offset;
         /// <summary>
         /// Collision circle that fits the object
@@ -123,7 +121,7 @@ namespace OlmoSpil
             get { return position; }
             set { position = value; }
         }
-        #endregion
+
 
         /// <summary>
         /// The SpriteObject's constructor
@@ -139,7 +137,7 @@ namespace OlmoSpil
 
         }
 
-        #region Methods
+
         /// <summary>
         /// Loads the SpriteObject's content
         /// Is a virtual void, so it can be overwritten.
@@ -301,6 +299,6 @@ namespace OlmoSpil
             offset = animations[name].Offset;
             fps = animations[name].Fps;
         }
-        #endregion
+
     }
 }
