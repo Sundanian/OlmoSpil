@@ -1,4 +1,4 @@
-C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\WindowsGL\Debug\Content\Sprites\redcross.jpeg
+C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\WindowsGL\Debug\Content\Sprites\Ball.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\WindowsGL\Debug\OlmoSpil.exe
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\WindowsGL\Debug\OlmoSpil.pdb
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\WindowsGL\Debug\MonoGame.Framework.dll
@@ -19,3 +19,4 @@ C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpi
 =======
 >>>>>>> 6cdab7bd268dbce8d30caedda9027e3b95c571d7
 C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\obj\x86\Debug\OlmoSpil.csprojResolveAssemblyReference.cache
+>>>>>>> a2752b45ea0445d75f352d3550754fb3785301e0
