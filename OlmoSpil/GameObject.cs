@@ -295,12 +295,15 @@ namespace OlmoSpil
         /// </summary>
         /// <param name="texture"></param>
         protected abstract void CreateAnimations(Texture2D texture);
+        
         protected void PlayAnimation(string name)
         {
             rectangles = animations[name].Rectangles;
             offset = animations[name].Offset;
             fps = animations[name].Fps;
         }
+
+
         #endregion
     }
 }
