@@ -38,6 +38,51 @@ namespace OlmoSpil
             set { Game1.allObjects = value; }
         }
 
+        private static bool powerUpSpawned = false;
+
+        public static bool PowerUpSpawned
+        {
+            get { return Game1.powerUpSpawned; }
+            set { Game1.powerUpSpawned = value; }
+        }
+
+
+        private static bool powerUpSpawned = false;
+
+        public static bool PowerUpSpawned
+        {
+            get { return Game1.powerUpSpawned; }
+            set { Game1.powerUpSpawned = value; }
+        }
+
+
+        private static bool powerUpSpawned = false;
+
+        public static bool PowerUpSpawned
+        {
+            get { return Game1.powerUpSpawned; }
+            set { Game1.powerUpSpawned = value; }
+        }
+
+
+        private static bool powerUpSpawned = false;
+
+        public static bool PowerUpSpawned
+        {
+            get { return Game1.powerUpSpawned; }
+            set { Game1.powerUpSpawned = value; }
+        }
+
+
+        private static bool powerUpSpawned = false;
+
+        public static bool PowerUpSpawned
+        {
+            get { return Game1.powerUpSpawned; }
+            set { Game1.powerUpSpawned = value; }
+        }
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
