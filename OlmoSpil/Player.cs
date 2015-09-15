@@ -19,5 +19,6 @@ namespace OlmoSpil
         protected override void CreateAnimations(Microsoft.Xna.Framework.Graphics.Texture2D texture)
         {
         }
+        //Din update mangler Skinke
     }
 }
