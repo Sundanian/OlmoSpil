@@ -148,5 +148,6 @@ namespace OlmoSpil
 
             base.Draw(gameTime);
         }
+        //Din metode mangler Skinke
     }
 }
