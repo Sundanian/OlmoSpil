@@ -52,7 +52,7 @@ namespace OlmoSpil
         /// <summary>
         /// The GameObject's position
         /// </summary>
-        private Vector2 position = Vector2.Zero;
+        protected Vector2 position = Vector2.Zero;
 
         /// <summary>
         /// The GameObject's origin

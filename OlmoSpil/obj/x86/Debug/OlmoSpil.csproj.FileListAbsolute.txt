@@ -20,3 +20,4 @@ C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpi
 >>>>>>> 6cdab7bd268dbce8d30caedda9027e3b95c571d7
 C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\obj\x86\Debug\OlmoSpil.csprojResolveAssemblyReference.cache
 >>>>>>> a2752b45ea0445d75f352d3550754fb3785301e0
+>>>>>>> parent of a1eb5f8... Lavet PowerUp, men det er ikke helt færdigt endnu.. - Skellettet er opbygget, mangler at blive implementeret med resten af koden, og testet igennem..
