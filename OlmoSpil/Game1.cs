@@ -75,9 +75,11 @@ namespace OlmoSpil
             {
                 go.Loadcontent(Content);
             }
-            Ball ball = new Ball(new Vector2(90, 90), 1);
-            AddObjects.Add(ball);
-            
+            for (int i = 0; i < 10; i++)
+            {
+                Ball ball = new Ball(new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), 1);
+                AddObjects.Add(ball);
+            }
         }
 
         /// <summary>

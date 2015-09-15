@@ -117,6 +117,12 @@ namespace OlmoSpil
         /// Dictionary, that contains all animations
         /// </summary>
         private Dictionary<string, Animation> animations = new Dictionary<string, Animation>();
+
+        public Vector2 Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
         #endregion
 
         /// <summary>
@@ -133,6 +139,7 @@ namespace OlmoSpil
 
         }
 
+        #region Methods
         /// <summary>
         /// Loads the SpriteObject's content
         /// Is a virtual void, so it can be overwritten.
@@ -173,8 +180,8 @@ namespace OlmoSpil
             spriteBatch.Draw(texture, position, rectangles[currentIndex], color, 0, origin, scale, effect, layer);
             
 #if DEBUG
-            Texture2D circle = CreateCircle(100);
-            spriteBatch.Draw(circle, new Vector2(30, 30), Color.Red);
+            Texture2D circle = CreateCircle((int)CollisionCircle.Radius);
+            spriteBatch.Draw(circle, Position, Color.Red);
 #endif
         }
 
@@ -251,7 +258,11 @@ namespace OlmoSpil
             }
         }
         public abstract void OnCollision(GameObject other);
-
+        /// <summary>
+        /// Creates a circle from the radius specified.
+        /// </summary>
+        /// <param name="radius"></param>
+        /// <returns></returns>
         public Texture2D CreateCircle(int radius)
         {
             int outerRadius = radius * 2 + 2; // So circle doesn't go out of bounds
@@ -290,5 +301,6 @@ namespace OlmoSpil
             offset = animations[name].Offset;
             fps = animations[name].Fps;
         }
+        #endregion
     }
 }
