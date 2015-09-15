@@ -24,7 +24,7 @@ namespace OlmoSpil
         }
 
         #region Methoeds
-        public override void OnCollision(GameObject other)
+        public void OnCollision(GameObject other)
         {
             if (other is Player) // If the colliding GameObject is of the type, Player
             {
@@ -73,9 +73,5 @@ namespace OlmoSpil
 
 
         #endregion
-
-        protected override void CreateAnimations(Texture2D texture)
-        {
-        }
     }
 }
