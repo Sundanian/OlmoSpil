@@ -66,7 +66,11 @@ namespace OlmoSpil
                 return team;
             }
         }
-
+        public int Life
+        {
+            get { return life; }
+            set { life = value; }
+        }
 
         public Player(Vector2 position, int frames, string name, float speed, PlayerId playerId, int team) : base(position, frames)
         {
@@ -104,7 +108,11 @@ namespace OlmoSpil
             CreateAnimation("idle", 1, 0, 0, 100, 50, Vector2.Zero, 1);
             PlayAnimation("idle");
         }
-
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y-32), Color.Red);
+            base.Draw(spriteBatch);
+        }
         public override void Update(GameTime gameTime)
         {
             if (lastBallToHit != null)

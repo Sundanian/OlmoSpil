@@ -79,7 +79,14 @@ namespace OlmoSpil
 
         public override void Update(GameTime gameTime)
         {
+            CheckForGoal();
             CheckPositionForDelete();
+            // This makes the stickyBall-PowerUp Work
+            if (lastPlayerToHit != null && lastPlayerToHit.PowerUp == PowerType.StickyBall && lastPlayerToHit.Duration > 0) //Finds the ball with number 1, should find the ball, which it collides with
+            {
+                this.position.X = lastPlayerToHit.Position.X;
+                this.position.Y = lastPlayerToHit.Position.Y - 32;
+            }
             this.position.X += xSpeed;
             this.position.Y += ySpeed;
             base.Update(gameTime);
@@ -93,6 +100,54 @@ namespace OlmoSpil
             if (this.position.X > Game1.Graphics.GraphicsDevice.Viewport.Width || this.position.X < -32 ||this.position.Y > Game1.Graphics.GraphicsDevice.Viewport.Height || this.position.Y < -32)
             {
                 Game1.RemoveObjects.Add(this); 
+            }
+        }
+        private void CheckForGoal()
+        {
+            //If this ball is outside the playing field
+            if (this.position.X < Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 - 200) //West
+            {
+                foreach (GameObject go in Game1.AllObjects)
+                {
+                    if (go is Player && (go as Player).Team == 4)
+                    {
+                        (go as Player).Life -= 1;
+                        Game1.RemoveObjects.Add(this);
+                    }
+                }
+            }
+            else if (this.position.Y < Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 - 200) //North
+            {
+                foreach (GameObject go in Game1.AllObjects)
+                {
+                    if (go is Player && (go as Player).Team == 3)
+                    {
+                        (go as Player).Life -= 1;
+                        Game1.RemoveObjects.Add(this);
+                    }
+                }
+            }
+            else if (this.position.X > Game1.Graphics.GraphicsDevice.Viewport.Width / 2 + 220) //East
+            {
+                foreach (GameObject go in Game1.AllObjects)
+                {
+                    if (go is Player && (go as Player).Team == 2)
+                    {
+                        (go as Player).Life -= 1;
+                        Game1.RemoveObjects.Add(this);
+                    }
+                }
+            }
+            else if (this.position.Y > Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 + 200) //South
+            {
+                foreach (GameObject go in Game1.AllObjects)
+                {
+                    if (go is Player && (go as Player).Team == 1)
+                    {
+                        (go as Player).Life -= 1;
+                        Game1.RemoveObjects.Add(this);
+                    }
+                }
             }
         }
     }

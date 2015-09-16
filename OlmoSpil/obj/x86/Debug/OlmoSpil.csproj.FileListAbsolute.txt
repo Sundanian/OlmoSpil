@@ -36,10 +36,6 @@ C:\Users\ThomasKrog\Desktop\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.pdb
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.exe
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.pdb
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Ball.png
-C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Player_Blue.png
-C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Player_Green.png
-C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Player_Red.png
-C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Player_Yellow.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Post.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\PowerUp_DeadBall_Skull.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\PowerUp_Heart.png
@@ -138,3 +134,8 @@ C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.Direct3D9
 C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.csprojResolveAssemblyReference.cache
 C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.exe
 C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.pdb
+C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Yellow.png
+C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Green.png
+C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Red.png
+C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Blue.png
+C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\SpriteFont.xnb
