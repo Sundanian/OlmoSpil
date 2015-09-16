@@ -129,6 +129,7 @@ namespace OlmoSpil
             //    Exit();
 
             // TODO: Add your update logic here
+            SpawnPowerUp();
             foreach (GameObject go in AddObjects)
             {
                 AllObjects.Add(go);
