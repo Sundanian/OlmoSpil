@@ -17,6 +17,9 @@ namespace OlmoSpil
         private int team;
         private float duration = 50f; //Duration of the power up
         private bool powerOn = false; // If the player has a powerUp, default False;
+        private bool usedPower = true; // If the player has used his powerUp
+
+
 
         private PowerType powerUp; // Which powerUp it is
         private PlayerId playerId; // Which player
@@ -50,6 +53,11 @@ namespace OlmoSpil
             get { return PowerOn; }
             set { powerOn = value; }
         }
+        public bool UsedPower
+        {
+            get { return usedPower; }
+            set { usedPower = value; }
+        }
         public int Team
         {
             get
@@ -63,7 +71,6 @@ namespace OlmoSpil
         {
             this.name = name;
             this.life = 5;
-            //this.speed = speed;
             this.playerId = playerId;
             this.team = team;
         }
@@ -175,7 +182,7 @@ namespace OlmoSpil
             }
             if (keystate.IsKeyDown(Keys.C)) //Pwup
             {
-
+                UsedPower = true;
             }
         }
     }
