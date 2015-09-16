@@ -16,11 +16,10 @@ namespace OlmoSpil
         private string name;
         private int life;
         private int team;
-        private float duration = 50f; //Duration of the power up
+        private float duration; //Duration of the power up
         private bool powerOn = false; // If the player has a powerUp, default False;
         private bool usedPower = true; // If the player has used his powerUp
-
-
+        private bool powerStunned = false; // Checks if
 
         private PowerType powerUp; // Which powerUp it is
         private PlayerId playerId; // Which player
@@ -66,12 +65,17 @@ namespace OlmoSpil
                 return team;
             }
         }
+        public int Life
+        {
+            get { return life; }
+            set { life = value; }
+        }
 
 
         public Player(Vector2 position, int frames, string name, float speed, PlayerId playerId, int team) : base(position, frames)
         {
             this.name = name;
-            this.life = 5;
+            this.life = 20;
             this.playerId = playerId;
             this.team = team;
         }
@@ -88,13 +92,14 @@ namespace OlmoSpil
             }
             if (other is Ball)
             {
-                lastBallToHit = (Ball)other;
+                lastBallToHit = (Ball)other; // Finds which ball was last hit
                 
                 //Virker ikke... Den skal have fat i boldens'state, hvor der er aktiveret Deadball på den
                 // og denne if, skal så se om den state er på, for at gøre noget
                 if (powerOn == true && powerUp == PowerType.StunBall)
                 {
-                    life = life - 1;
+                    powerStunned = true;
+                    life = life - 3;
                     // Awesome Death animation, with explosions, fire, and more explosions
                 }
             }
@@ -128,7 +133,7 @@ namespace OlmoSpil
                         {
                             if (duration == 50) // Only affects the player ONE time, when the duration is at max
                             {
-                                speed = speed + 50; // Increases the Player's speed with 50
+                                speed = speed + 200; // Increases the Player's speed with 50
                             }
                             duration -= 0.2f; // How fast the duration depletes
                         }
@@ -171,29 +176,44 @@ namespace OlmoSpil
 		private void HandleInput(KeyboardState keystate)
         {
             velocity = Vector2.Zero;
-            if (keystate.IsKeyDown(Keys.Left))
+            if (!powerStunned)
             {
-                velocity.X = -3f;
-            }
-            if (keystate.IsKeyDown(Keys.Right))
-            {
-                velocity.X = 3f;
-            }
-            if (keystate.IsKeyDown(Keys.Up))
-            {
-                velocity.Y = -3f;
-            }
-            if (keystate.IsKeyDown(Keys.Down))
-            {
-                velocity.Y = 3f;
-            }
-            if (keystate.IsKeyDown(Keys.Space)) //Shoot
-            {
+                if (keystate.IsKeyDown(Keys.Left))
+                {
+                    velocity.X = -3f;
+                }
+                if (keystate.IsKeyDown(Keys.Right))
+                {
+                    velocity.X = 3f;
+                }
+                if (keystate.IsKeyDown(Keys.Up))
+                {
+                    velocity.Y = -3f;
+                }
+                if (keystate.IsKeyDown(Keys.Down))
+                {
+                    velocity.Y = 3f;
+                }
+                if (keystate.IsKeyDown(Keys.Space)) //Shoot
+                {
 
+                }
+                if (keystate.IsKeyDown(Keys.C)) //Pwup
+                {
+                    UsedPower = true;
+                }
             }
-            if (keystate.IsKeyDown(Keys.C)) //Pwup
+            else
             {
-                UsedPower = true;
+                if (duration <= 0)
+                {
+                    powerStunned = false;
+                    duration = 50;
+                }
+                else
+                {
+                    duration -= 0.3f;
+                }
             }
         }
     }
