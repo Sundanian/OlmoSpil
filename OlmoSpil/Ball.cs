@@ -66,6 +66,8 @@ namespace OlmoSpil
                 //ajusts the x and y speed to the ball
                 this.xSpeed = xDiff * sizeFactor;
                 this.ySpeed = yDiff * sizeFactor;
+                this.xSpeed = xSpeed + 0.15f;
+                this.ySpeed = ySpeed + 0.15f;
             }
         }
 
@@ -78,74 +80,11 @@ namespace OlmoSpil
         public override void Update(GameTime gameTime)
         {
             CheckPositionForDelete();
-            SpeedLose();
+            this.position.X += xSpeed;
+            this.position.Y += ySpeed;
             base.Update(gameTime);
         }
-        private void SpeedLose()
-        {
-            // This makes the stickyBall-PowerUp Work
-            if (lastPlayerToHit != null && lastPlayerToHit.PowerUp == PowerType.StickyBall && lastPlayerToHit.Duration > 0) //Finds the ball with number 1, should find the ball, which it collides with
-            {
-                this.position.X = lastPlayerToHit.Position.X;
-                this.position.Y = lastPlayerToHit.Position.Y - 32;
-            }
-            if (xSpeed != 0)
-            {
-                this.position.X += xSpeed;
-                if (xSpeed > 0)
-                {
-                    //for at farten ikke ender med aldrig at blive 0
-                    if (xSpeed < 0.09)
-                    {
-                        xSpeed -= xSpeed;
-                    }
-                    else
-                    {
-                        xSpeed -= 0.1f;
-                    }
-                }
-                else
-                {
-                    //for at farten ikke ender med aldrig at blive 0
-                    if (xSpeed > -0.09)
-                    {
-                        xSpeed += xSpeed;
-                    }
-                    else
-                    {
-                        xSpeed += 0.1f;
-                    }
-                }
-            }
-            if (ySpeed != 0)
-            {
-                this.position.Y += ySpeed;
-                if (ySpeed > 0)
-                {
-                    //for at farten ikke ender med aldrig at blive 0
-                    if (ySpeed < 0.09)
-                    {
-                        ySpeed -= ySpeed;
-                    }
-                    else
-                    {
-                        ySpeed -= 0.1f;
-                    }
-                }
-                else
-                {
-                    //for at farten ikke ender med aldrig at blive 0
-                    if (ySpeed > -0.09)
-                    {
-                        ySpeed += ySpeed;
-                    }
-                    else
-                    {
-                        ySpeed += 0.1f;
-                    }
-                }
-            }
-        }
+       
         /// <summary>
         /// Removes a ball if its out of the screen
         /// </summary>
