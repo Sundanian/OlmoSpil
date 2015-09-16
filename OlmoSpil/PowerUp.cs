@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace OlmoSpil
 {
-    public enum PowerType { Speed = 1, DeadBall = 2, StickyBall = 3, MultiBall = 4 } // The different powerUps, and their variables
+    public enum PowerType { Speed = 1, StunBall = 2, StickyBall = 3, MultiBall = 4 } // The different powerUps, and their variables
     class PowerUp : GameObject
     {
         #region Fields
@@ -39,7 +39,7 @@ namespace OlmoSpil
                             tempPlayer.Duration = 50f; // Sets the duration of the powerUp, to the player
                         }
                         break;
-                    case PowerType.DeadBall:
+                    case PowerType.StunBall:
                         {
                             Player tempPlayer = (Player)other;
                             tempPlayer.PowerOn = true; // Sets the player's bool (powerOn) to true.
@@ -85,7 +85,7 @@ namespace OlmoSpil
                 case PowerType.Speed:
                     texture = content.Load<Texture2D>(@"Sprites/PowerUp_Lightning.png");
                     break;
-                case PowerType.DeadBall:
+                case PowerType.StunBall:
                     texture = content.Load<Texture2D>(@"Sprites/PowerUp_DeadBall.png");
                     break;
                 case PowerType.StickyBall:

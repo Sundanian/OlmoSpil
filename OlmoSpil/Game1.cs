@@ -206,7 +206,7 @@ namespace OlmoSpil
                             break;
                         case 4:
                             {
-                                addObjects.Add(new PowerUp(@"PowerUp_DeadBall_Skull.png", position, 1, PowerType.DeadBall));
+                                addObjects.Add(new PowerUp(@"PowerUp_DeadBall_Skull.png", position, 1, PowerType.StunBall));
                                 powerUpSpawned = true;
                             }
                             break;

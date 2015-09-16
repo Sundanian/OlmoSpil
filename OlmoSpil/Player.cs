@@ -13,13 +13,20 @@ namespace OlmoSpil
     class Player : GameObject
     {
         private string name;
-        //private float speed;
         private int life;
         private int team;
         private float duration = 50f; //Duration of the power up
         private bool powerOn = false; // If the player has a powerUp, default False;
+
         private PowerType powerUp; // Which powerUp it is
         private PlayerId playerId; // Which player
+        private Ball lastBallToHit; // Is used in Ball-class
+
+        internal Ball LastBallToHit
+        {
+            get { return lastBallToHit; }
+            set { lastBallToHit = value; }
+        }
         private static Random rnd = new Random();
 
         public PowerType PowerUp
@@ -40,6 +47,7 @@ namespace OlmoSpil
         }
         public bool PowerOn
         {
+            get { return PowerOn; }
             set { powerOn = value; }
         }
         public int Team
@@ -68,9 +76,11 @@ namespace OlmoSpil
         {
             if (other is Ball)
             {
-                //Virker nok ikke... Den skal have fat i boldens'state, hvor der er aktiveret Deadball på den
+                lastBallToHit = (Ball)other;
+                
+                //Virker ikke... Den skal have fat i boldens'state, hvor der er aktiveret Deadball på den
                 // og denne if, skal så se om den state er på, for at gøre noget
-                if (powerOn == true && powerUp == PowerType.DeadBall)
+                if (powerOn == true && powerUp == PowerType.StunBall)
                 {
                     life = life - 1;
                     // Awesome Death animation, with explosions, fire, and more explosions
@@ -85,6 +95,10 @@ namespace OlmoSpil
 
         public override void Update(GameTime gameTime)
         {
+            if (lastBallToHit != null)
+            {
+                lastBallToHit.LastPlayerToHit = this;
+            }
             #region Powerup Conditions
             if (powerOn == true) // If a PowerUp is collected
             {
@@ -104,7 +118,7 @@ namespace OlmoSpil
                         duration -= 0.2f; // How fast the duration depletes
                     }
                 }
-                if (powerUp == PowerType.DeadBall)
+                if (powerUp == PowerType.StunBall)
                 {
                     if (duration <= 0)
                     {

@@ -11,6 +11,14 @@ namespace OlmoSpil
     {
         private float xSpeed = 0;
         private float ySpeed = 0;
+        private Player lastPlayerToHit;
+
+        internal Player LastPlayerToHit
+        {
+            get { return lastPlayerToHit; }
+            set { lastPlayerToHit = value; }
+        }
+
         public Ball(Vector2 position, int frames)
             : base(position, frames)
         {
@@ -70,8 +78,15 @@ namespace OlmoSpil
             CreateAnimation("idle", 1, 0, 0, 32, 32, Vector2.Zero, 1);
             PlayAnimation("idle");
         }
+
         public override void Update(GameTime gameTime)
         {
+            // This makes the stickyBall-PowerUp Work
+            if (lastPlayerToHit != null && lastPlayerToHit.PowerUp == PowerType.StickyBall && lastPlayerToHit.Duration > 0) //Finds the ball with number 1, should find the ball, which it collides with
+            {
+                this.position.X = lastPlayerToHit.Position.X;
+                this.position.Y = lastPlayerToHit.Position.Y - 32;
+            }
             if (xSpeed != 0)
             {
                 this.position.X += xSpeed;
