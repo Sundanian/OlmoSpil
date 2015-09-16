@@ -77,18 +77,21 @@ namespace OlmoSpil
 
         public override void Update(GameTime gameTime)
         {
+<<<<<<< HEAD
             CheckPositionForDelete();
             SpeedLose();
             base.Update(gameTime);
         }
         private void SpeedLose()
         {
+=======
             // This makes the stickyBall-PowerUp Work
             if (lastPlayerToHit != null && lastPlayerToHit.PowerUp == PowerType.StickyBall && lastPlayerToHit.Duration > 0) //Finds the ball with number 1, should find the ball, which it collides with
             {
                 this.position.X = lastPlayerToHit.Position.X;
                 this.position.Y = lastPlayerToHit.Position.Y - 32;
             }
+>>>>>>> 55d929710be7dd89f08111d72948d46654d369d3
             if (xSpeed != 0)
             {
                 this.position.X += xSpeed;
