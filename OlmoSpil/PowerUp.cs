@@ -83,16 +83,16 @@ namespace OlmoSpil
             switch (powerType)
             {
                 case PowerType.Speed:
-                    texture = content.Load<Texture2D>(@"Sprites/Lightning.png");
+                    texture = content.Load<Texture2D>(@"Sprites/PowerUp_Lightning.png");
                     break;
                 case PowerType.DeadBall:
-                    texture = content.Load<Texture2D>(@"Sprites/DeadBall.png");
+                    texture = content.Load<Texture2D>(@"Sprites/PowerUp_DeadBall.png");
                     break;
                 case PowerType.StickyBall:
-                    texture = content.Load<Texture2D>(@"Sprites/Heart.png");
+                    texture = content.Load<Texture2D>(@"Sprites/PowerUp_Heart.png");
                     break;
                 case PowerType.MultiBall:
-                    texture = content.Load<Texture2D>(@"Sprites/MultiBall.png");
+                    texture = content.Load<Texture2D>(@"Sprites/PowerUp_MultiBall.png");
                     break;
                 default:
                     break;
