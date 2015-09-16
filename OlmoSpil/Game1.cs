@@ -11,6 +11,7 @@ namespace OlmoSpil
     /// </summary>
     public class Game1 : Game
     {
+        private static SpriteFont sf;
         private static GraphicsDeviceManager graphics;
 
         public static GraphicsDeviceManager Graphics
@@ -50,6 +51,11 @@ namespace OlmoSpil
         private static Random rnd = new Random();
 
         private int timer = 10;
+        public static SpriteFont Sf
+        {
+            get { return sf; }
+            set { sf = value; }
+        }
 
         public Game1()
         {
@@ -84,6 +90,7 @@ namespace OlmoSpil
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            sf = Content.Load<SpriteFont>("SpriteFont");
             foreach (GameObject go in AllObjects)
             {
                 go.Loadcontent(Content);
