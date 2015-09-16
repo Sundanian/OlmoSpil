@@ -36,10 +36,6 @@ C:\Users\ThomasKrog\Desktop\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.pdb
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.exe
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.pdb
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Ball.png
-C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Player_Blue.png
-C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Player_Green.png
-C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Player_Red.png
-C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Player_Yellow.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Post.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\PowerUp_DeadBall_Skull.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\PowerUp_Heart.png
@@ -103,3 +99,43 @@ C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpi
 C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\obj\x86\Debug\OlmoSpil.csprojResolveAssemblyReference.cache
 C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\obj\x86\Debug\OlmoSpil.exe
 C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\obj\x86\Debug\OlmoSpil.pdb
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Ball.png
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Post.png
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\PowerUp_DeadBall_Skull.png
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\PowerUp_Heart.png
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\PowerUp_Lightning.png
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\PowerUp_MultiBall.png
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Yellow.png
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Green.png
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Red.png
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Blue.png
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\OlmoSpil.exe
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\OlmoSpil.pdb
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.dll
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.RawInput.dll
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\MonoGame.Framework.xml
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.xml
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.RawInput.xml
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.csprojResolveAssemblyReference.cache
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.exe
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.pdb
+C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Yellow.png
+C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Green.png
+C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Red.png
+C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Blue.png
+C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\SpriteFont.xnb

@@ -67,12 +67,12 @@ namespace OlmoSpil
                 return team;
             }
         }
+
         public int Life
         {
             get { return life; }
             set { life = value; }
         }
-
 
         public Player(Vector2 position, int frames, string name, float speed, PlayerId playerId, int team) : base(position, frames)
         {
@@ -83,7 +83,7 @@ namespace OlmoSpil
         }
         public override void Loadcontent(Microsoft.Xna.Framework.Content.ContentManager content)
         {
-            texture = content.Load<Texture2D>(@"Sprites/Player_Blue.png");
+            texture = content.Load<Texture2D>(@"Sprites/Slime_Player_Blue.png");
             base.Loadcontent(content);
         }
         public override void OnCollision(GameObject other)
@@ -108,10 +108,14 @@ namespace OlmoSpil
         }
         protected override void CreateAnimations(Texture2D texture)
         {
-            CreateAnimation("idle", 1, 0, 0, 32, 32, Vector2.Zero, 1);
+            CreateAnimation("idle", 1, 0, 0, 100, 50, Vector2.Zero, 1);
             PlayAnimation("idle");
         }
-
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y-32), Color.Red);
+            base.Draw(spriteBatch);
+        }
         public override void Update(GameTime gameTime)
         {
             if (lastBallToHit != null)
