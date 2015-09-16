@@ -49,6 +49,8 @@ namespace OlmoSpil
 
         private static Random rnd = new Random();
 
+        private int timer = 10;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -86,12 +88,8 @@ namespace OlmoSpil
             {
                 go.Loadcontent(Content);
             }
-            for (int i = 0; i < 10; i++)
-            {
-                Ball ball = new Ball(new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), 1);
-                AddObjects.Add(ball);
-            }
-            Player p = new Player(new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), 1, "Bob", 1, PlayerId.Player1, 1);
+
+            Player p = new Player(new Vector2(GraphicsDevice.Viewport.Width / 2 - 16, GraphicsDevice.Viewport.Height / 2 - 16 + 200), 1, "Bob", 1, PlayerId.Player1, 1);
             AddObjects.Add(p);
             #region Level
             //Center
@@ -130,6 +128,7 @@ namespace OlmoSpil
 
             // TODO: Add your update logic here
             SpawnPowerUp();
+            SpawnBalls();
             foreach (GameObject go in AddObjects)
             {
                 AllObjects.Add(go);
@@ -182,10 +181,10 @@ namespace OlmoSpil
                     switch (choosePower)
                     {
 
-                            /*addObjects.add --> Adds a new GameObject
-                             * new PowerUp(Path to the file, position where it will spawn, number of frames, PowerType)
-                             * powerUpSpawned --> Set the bool to true, so only ONE powerUp can be in the field at a time
-                             */
+                        /*addObjects.add --> Adds a new GameObject
+                         * new PowerUp(Path to the file, position where it will spawn, number of frames, PowerType)
+                         * powerUpSpawned --> Set the bool to true, so only ONE powerUp can be in the field at a time
+                         */
                         case 1:
                             {
                                 addObjects.Add(new PowerUp(@"PowerUp_Lightning.png", position, 1, PowerType.Speed));
@@ -214,8 +213,26 @@ namespace OlmoSpil
                             break;
                     }
                 }
-                
+
             }
+        }
+
+        private void SpawnBalls()
+        {
+            if (timer <= 0)
+            {
+                int x = +rnd.Next(-1, 2);
+                int y = +rnd.Next(-1, 2);
+                do
+                {
+                    x = +rnd.Next(-1, 2);
+                    y = +rnd.Next(-1, 2);
+                } while (x == 0 || y == 0);
+                Ball ball = new Ball(new Vector2(GraphicsDevice.Viewport.Width / 2 - 16 + x, GraphicsDevice.Viewport.Height / 2 - 16 + y), 1);
+                AddObjects.Add(ball);
+                timer = 1000;
+            }
+            timer--;
         }
     }
 }

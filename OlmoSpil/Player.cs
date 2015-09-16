@@ -12,6 +12,7 @@ namespace OlmoSpil
 
     class Player : GameObject
     {
+        private Vector2 lastPosition;
         private string name;
         //private float speed;
         private int life;
@@ -66,6 +67,10 @@ namespace OlmoSpil
         }
         public override void OnCollision(GameObject other)
         {
+            if (other is Post)
+            {
+                this.position = lastPosition;
+            }
             if (other is Ball)
             {
                 //Virker nok ikke... Den skal have fat i boldens'state, hvor der er aktiveret Deadball på den
@@ -135,6 +140,7 @@ namespace OlmoSpil
 			position += velocity;
             HandleInput(Keyboard.GetState());
             base.Update(gameTime);
+            lastPosition = position;
         }
 		private void HandleInput(KeyboardState keystate)
         {

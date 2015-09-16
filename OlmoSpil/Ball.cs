@@ -53,11 +53,7 @@ namespace OlmoSpil
                 float hyp = (float)Math.Sqrt(tempTotalDiff);
 
                 //Scale
-                float sizeFactor = 3 / hyp;
-                if (other is Player || other is Post)
-                {
-                    sizeFactor = 4 / hyp;
-                }
+                float sizeFactor = 6 / hyp;
 
                 //ajusts the x and y speed to the ball
                 this.xSpeed = xDiff * sizeFactor;
@@ -71,6 +67,12 @@ namespace OlmoSpil
             PlayAnimation("idle");
         }
         public override void Update(GameTime gameTime)
+        {
+            CheckPositionForDelete();
+            SpeedLose();
+            base.Update(gameTime);
+        }
+        private void SpeedLose()
         {
             if (xSpeed != 0)
             {
@@ -128,7 +130,16 @@ namespace OlmoSpil
                     }
                 }
             }
-            base.Update(gameTime);
+        }
+        /// <summary>
+        /// Removes a ball if its out of the screen
+        /// </summary>
+        private void CheckPositionForDelete()
+        {
+            if (this.position.X > Game1.Graphics.GraphicsDevice.Viewport.Width || this.position.X < -32 ||this.position.Y > Game1.Graphics.GraphicsDevice.Viewport.Height || this.position.Y < -32)
+            {
+                Game1.RemoveObjects.Add(this); 
+            }
         }
     }
 }
