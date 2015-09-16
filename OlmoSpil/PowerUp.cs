@@ -78,6 +78,27 @@ namespace OlmoSpil
             PlayAnimation("idle");
         }
 
+        public override void Loadcontent(Microsoft.Xna.Framework.Content.ContentManager content)
+        {
+            switch (powerType)
+            {
+                case PowerType.Speed:
+                    texture = content.Load<Texture2D>(@"Sprites/Lightning.png");
+                    break;
+                case PowerType.DeadBall:
+                    texture = content.Load<Texture2D>(@"Sprites/DeadBall.png");
+                    break;
+                case PowerType.StickyBall:
+                    texture = content.Load<Texture2D>(@"Sprites/Heart.png");
+                    break;
+                case PowerType.MultiBall:
+                    texture = content.Load<Texture2D>(@"Sprites/MultiBall.png");
+                    break;
+                default:
+                    break;
+            }
+            base.Loadcontent(content);
+        }
         #endregion
     }
 }
