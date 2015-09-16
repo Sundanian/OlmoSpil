@@ -109,48 +109,53 @@ namespace OlmoSpil
             #region Powerup Conditions
             if (powerOn == true) // If a PowerUp is collected
             {
-                if (powerUp == PowerType.Speed)
+                usedPower = false;
+                if (usedPower == true)
                 {
-                    if (duration <= 0) // When the durations hits 0
+                    if (powerUp == PowerType.Speed)
                     {
-                        speed = 100; // Resets the player's speed to 100
-                        powerOn = false; // resets the player's powerOn to false
-                    }
-                    else // Effect, while the duration is not 0
-                    {
-                        if (duration == 50) // Only affects the player ONE time, when the duration is at max
+                        if (duration <= 0) // When the durations hits 0
                         {
-                            speed = speed + 50; // Increases the Player's speed with 50
+                            speed = 100; // Resets the player's speed to 100
+                            powerOn = false; // resets the player's powerOn to false
                         }
-                        duration -= 0.2f; // How fast the duration depletes
-                    }
-                }
-                if (powerUp == PowerType.StunBall)
-                {
-                    if (duration <= 0)
-                    {
-                        powerOn = false; 
-                    }
-                    else
-                    {
-                        if (duration == 50)
+                        else // Effect, while the duration is not 0
                         {
-                            //Indsæt kode for, hvad der sker når bolden første gang bliver ramt af spilleren
+                            if (duration == 50) // Only affects the player ONE time, when the duration is at max
+                            {
+                                speed = speed + 50; // Increases the Player's speed with 50
+                            }
+                            duration -= 0.2f; // How fast the duration depletes
                         }
-                        duration -= 0.2f;
+                    }
+                    if (powerUp == PowerType.StunBall)
+                    {
+                        if (duration <= 0)
+                        {
+                            powerOn = false;
+                        }
+                        else
+                        {
+                            if (duration == 50)
+                            {
+                                //Indsæt kode for, hvad der sker når bolden første gang bliver ramt af spilleren
+                            }
+                            duration -= 0.2f;
+                        }
+                    }
+                    if (powerUp == PowerType.StickyBall)
+                    {
+                        if (duration <= 0)
+                        {
+                            powerOn = false;
+                        }
+                        else
+                        {
+                            duration -= 0.2f;
+                        }
                     }
                 }
-                if (powerUp == PowerType.StickyBall)
-                {
-                    if (duration <= 0)
-                    {
-                        powerOn = false;
-                    }
-                    else
-                    {
-                        duration -= 0.2f;
-                    }
-                }
+                
             }
             #endregion
 			position += velocity;
