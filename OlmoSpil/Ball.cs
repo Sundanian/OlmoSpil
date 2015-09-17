@@ -84,22 +84,41 @@ namespace OlmoSpil
             // This makes the stickyBall-PowerUp Work
             if (lastPlayerToHit != null && lastPlayerToHit.PowerUp == PowerType.StickyBall && lastPlayerToHit.Duration > 0) //Finds the ball with number 1, should find the ball, which it collides with
             {
-                this.position.X = lastPlayerToHit.Position.X;
-                this.position.Y = lastPlayerToHit.Position.Y - 32;
+                switch (lastPlayerToHit.Team)
+                {
+                    case 1:
+                        this.position.X = lastPlayerToHit.Position.X + 50-16;
+                        this.position.Y = lastPlayerToHit.Position.Y - 32;
+                        break;
+                    case 2:
+                        this.position.X = lastPlayerToHit.Position.X - 32;
+                        this.position.Y = lastPlayerToHit.Position.Y + 50-16;
+                        break;
+                    case 3:
+                        this.position.X = lastPlayerToHit.Position.X + 50-16;
+                        this.position.Y = lastPlayerToHit.Position.Y + 100;
+                        break;
+                    case 4:
+                        this.position.X = lastPlayerToHit.Position.X + 100;
+                        this.position.Y = lastPlayerToHit.Position.Y + 50-16;
+                        break;
+                    default:
+                        break;
+                }
             }
             this.position.X += xSpeed;
             this.position.Y += ySpeed;
             base.Update(gameTime);
         }
-       
+
         /// <summary>
         /// Removes a ball if its out of the screen
         /// </summary>
         private void CheckPositionForDelete()
         {
-            if (this.position.X > Game1.Graphics.GraphicsDevice.Viewport.Width || this.position.X < -32 ||this.position.Y > Game1.Graphics.GraphicsDevice.Viewport.Height || this.position.Y < -32)
+            if (this.position.X > Game1.Graphics.GraphicsDevice.Viewport.Width || this.position.X < -32 || this.position.Y > Game1.Graphics.GraphicsDevice.Viewport.Height || this.position.Y < -32)
             {
-                Game1.RemoveObjects.Add(this); 
+                Game1.RemoveObjects.Add(this);
             }
         }
         private void CheckForGoal()

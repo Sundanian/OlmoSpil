@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace OlmoSpil
 {
-    public enum PowerType { Speed = 1, StunBall = 2, StickyBall = 3, MultiBall = 4 } // The different powerUps, and their variables
+    public enum PowerType { Speed = 1, StickyBall = 2, MultiBall = 3, None = 4 } // The different powerUps, and their variables
     class PowerUp : GameObject
     {
         #region Fields
@@ -39,14 +39,6 @@ namespace OlmoSpil
                             tempPlayer.Duration = 50f; // Sets the duration of the powerUp, to the player
                         }
                         break;
-                    case PowerType.StunBall:
-                        {
-                            Player tempPlayer = (Player)other;
-                            tempPlayer.PowerOn = true; // Sets the player's bool (powerOn) to true.
-                            tempPlayer.PowerUp = this.powerType; // Sets this powerType to the Player
-                            tempPlayer.Duration = 50f; // Sets the duration of the powerUp, to the player
-                        }
-                        break;
                     case PowerType.StickyBall:
                         {
                             Player tempPlayer = (Player)other;
@@ -66,10 +58,9 @@ namespace OlmoSpil
                     default:
                         break;
                 }
+                Game1.RemoveObjects.Add(this); // Removes the PowerUp, which is collected from the field
+                InGame.PowerUpSpawned = false; // Resets the PowerUpSpawned, so it can spawn a new PowerUp
             }
-            Game1.RemoveObjects.Add(this); // Removes the PowerUp, which is collected from the field
-            InGame.PowerUpSpawned = false; // Resets the PowerUpSpawned, so it can spawn a new PowerUp
-
         }
 
         protected override void CreateAnimations(Texture2D texture)
@@ -84,9 +75,6 @@ namespace OlmoSpil
             {
                 case PowerType.Speed:
                     texture = content.Load<Texture2D>(@"Sprites/PowerUp_Lightning.png");
-                    break;
-                case PowerType.StunBall:
-                    texture = content.Load<Texture2D>(@"Sprites/PowerUp_DeadBall.png");
                     break;
                 case PowerType.StickyBall:
                     texture = content.Load<Texture2D>(@"Sprites/PowerUp_Heart.png");

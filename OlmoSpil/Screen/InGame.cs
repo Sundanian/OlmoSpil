@@ -11,7 +11,6 @@ namespace OlmoSpil
     {
         private static bool powerUpSpawned = false;
         private static Random rnd = new Random();
-        private int timer = 10;
         private bool win;
         public static bool PowerUpSpawned
         {
@@ -94,12 +93,28 @@ namespace OlmoSpil
             if (powerUpSpawned == false) //If there is NOT a powerUp on the field
             {
                 int x = rnd.Next(0, 1000);
-                if (x <= 10)
+                if (x == 1)
                 {
                     int choosePower = rnd.Next(1, 4);
-                    float xCoord = rnd.Next(100, 250); // Should be set to be within the screen/Level
-                    float yCoord = rnd.Next(100, 250); // Should be set to be within the screen/Level
-                    Vector2 position1 = new Vector2(xCoord, yCoord);
+                    int spawn = rnd.Next(1, 5);
+                    Vector2 position1 = Vector2.Zero;
+                    switch (spawn)
+                    {
+                        case 1:
+                             position1 = new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 - 200+40 , Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 - 200+40);
+                            break;
+                        case 2:
+                             position1 = new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 + 200-128, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 - 200+40);
+                            break;
+                        case 3:
+                             position1 = new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 - 200+40, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 + 200-128);
+                            break;
+                        case 4:
+                            position1 = new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 + 200-128, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 + 200-128);
+                            break;
+                        default:
+                            break;
+                    }
                     switch (choosePower)
                     {
 
@@ -122,12 +137,6 @@ namespace OlmoSpil
                         case 3:
                             {
                                 Game1.AddObjects.Add(new PowerUp(@"PowerUp_MultiBall.png", position1, 1, PowerType.MultiBall));
-                                powerUpSpawned = true;
-                            }
-                            break;
-                        case 4:
-                            {
-                                Game1.AddObjects.Add(new PowerUp(@"PowerUp_DeadBall_Skull.png", position1, 1, PowerType.StunBall));
                                 powerUpSpawned = true;
                             }
                             break;

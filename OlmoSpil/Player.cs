@@ -106,6 +106,10 @@ namespace OlmoSpil
         }
         public override void OnCollision(GameObject other)
         {
+            if (other is PowerUp)
+            {
+                powerOn = true;
+            }
             if (other is Turret)
             {
                 this.position = lastPosition;
@@ -113,15 +117,6 @@ namespace OlmoSpil
             if (other is Ball)
             {
                 lastBallToHit = (Ball)other; // Finds which ball was last hit
-
-                //Virker ikke... Den skal have fat i boldens'state, hvor der er aktiveret Deadball på den
-                // og denne if, skal så se om den state er på, for at gøre noget
-                if (powerOn == true && powerUp == PowerType.StunBall)
-                {
-                    powerStunned = true;
-                    life = life - 3;
-                    // Awesome Death animation, with explosions, fire, and more explosions
-                }
             }
         }
         protected override void CreateAnimations(Texture2D texture)
@@ -183,48 +178,51 @@ namespace OlmoSpil
                 {
                     if (powerUp == PowerType.Speed)
                     {
+                        speed = 2; // Increases the Player's speed
+                    }
+                    if (powerUp == PowerType.StickyBall)
+                    {
+                        //Release
+                        powerUp = PowerType.None;
+                    }
+                    if (powerUp == PowerType.MultiBall)
+                    {
+                        //Spawn flere bolde
+                        for (int i = 0; i < 3; i++)
+                        {
+                            Game1.AddObjects.Add(new Ball(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 16, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 16), 1));
+                        }
+                        powerUp = PowerType.None;
+                    }
+                }
+                switch (powerUp)
+                {
+                    case PowerType.Speed:
                         if (duration <= 0) // When the durations hits 0
                         {
                             speed = 1; // Resets the player's speed to 100
                             powerOn = false; // resets the player's powerOn to false
                         }
-                        else // Effect, while the duration is not 0
+                        else if (duration > 0)
                         {
-                            if (duration == 50) // Only affects the player ONE time, when the duration is at max
-                            {
-                                speed = speed * 2; // Increases the Player's speed with 50
-                            }
-                            duration -= 2f; // How fast the duration depletes
+                            duration -= 0.2f; // How fast the duration depletes
                         }
-                    }
-                    if (powerUp == PowerType.StunBall)
-                    {
-                        if (duration <= 0)
+                        break;
+                    case PowerType.StickyBall:
+                        if (duration <= 0) // When the durations hits 0
                         {
-                            powerOn = false;
+                            powerOn = false; // resets the player's powerOn to false
                         }
-                        else
+                        else if (duration > 0)
                         {
-                            if (duration == 50)
-                            {
-                                //Indsæt kode for, hvad der sker når bolden første gang bliver ramt af spilleren
-                            }
-                            duration -= 0.2f;
+                            duration -= 0.2f; // How fast the duration depletes
                         }
-                    }
-                    if (powerUp == PowerType.StickyBall)
-                    {
-                        if (duration <= 0)
-                        {
-                            powerOn = false;
-                        }
-                        else
-                        {
-                            duration -= 0.2f;
-                        }
-                    }
+                        break;
+                    case PowerType.MultiBall:
+                        break;
+                    default:
+                        break;
                 }
-
             }
             #endregion
             position += velocity;
@@ -241,44 +239,44 @@ namespace OlmoSpil
                 {
                     if (keystate.IsKeyDown(Keys.Left))
                     {
-                        velocity.X = -5f;
+                        velocity.X = -5f * speed;
                     }
                     if (keystate.IsKeyDown(Keys.Right))
                     {
-                        velocity.X = 5f;
+                        velocity.X = 5f * speed;
                     }
                 }
                 if (playerId == PlayerId.Player2)
                 {
                     if (keystate.IsKeyDown(Keys.Left))
                     {
-                        velocity.Y = -5f;
+                        velocity.Y = -5f * speed;
                     }
                     if (keystate.IsKeyDown(Keys.Right))
                     {
-                        velocity.Y = 5f;
+                        velocity.Y = 5f * speed;
                     }
                 }
                 if (playerId == PlayerId.Player3)
                 {
                     if (keystate.IsKeyDown(Keys.Left))
                     {
-                        velocity.X = -5f;
+                        velocity.X = -5f * speed;
                     }
                     if (keystate.IsKeyDown(Keys.Right))
                     {
-                        velocity.X = 5f;
+                        velocity.X = 5f * speed;
                     }
                 }
                 if (playerId == PlayerId.Player4)
                 {
                     if (keystate.IsKeyDown(Keys.Left))
                     {
-                        velocity.Y = -5f;
+                        velocity.Y = -5f * speed;
                     }
                     if (keystate.IsKeyDown(Keys.Right))
                     {
-                        velocity.Y = 5f;
+                        velocity.Y = 5f * speed;
                     }
                 }
 
