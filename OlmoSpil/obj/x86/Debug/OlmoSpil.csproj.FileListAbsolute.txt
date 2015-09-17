@@ -65,10 +65,6 @@ C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\b
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.csprojResolveAssemblyReference.cache
 C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\bin\Windows\Debug\Content\Sprites\Ball.png
-C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\bin\Windows\Debug\Content\Sprites\Player_Blue.png
-C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\bin\Windows\Debug\Content\Sprites\Player_Green.png
-C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\bin\Windows\Debug\Content\Sprites\Player_Red.png
-C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\bin\Windows\Debug\Content\Sprites\Player_Yellow.png
 C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\bin\Windows\Debug\Content\Sprites\Post.png
 C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\bin\Windows\Debug\Content\Sprites\PowerUp_DeadBall_Skull.png
 C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\bin\Windows\Debug\Content\Sprites\PowerUp_Heart.png
@@ -139,3 +135,8 @@ C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\b
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Red.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Blue.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\SpriteFont.xnb
+C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Yellow.png
+C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Green.png
+C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Red.png
+C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Blue.png
+C:\Users\Skinke\Documents\EA-Dania\3. Semester\Netværk\Projekt - Opgave\OlmoSpil\bin\Windows\Debug\Content\SpriteFont.xnb

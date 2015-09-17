@@ -67,12 +67,15 @@ namespace OlmoSpil
                 return team;
             }
         }
-
         public int Life
         {
             get { return life; }
             set { life = value; }
         }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 49feab6a9a7fd204dffe7b16e375cca9d107f612
 
         public Player(Vector2 position, int frames, string name, float speed, PlayerId playerId, int team) : base(position, frames)
         {
@@ -80,7 +83,6 @@ namespace OlmoSpil
             this.life = 20;
             this.playerId = playerId;
             this.team = team;
-            this.speed = 1;
         }
         public override void Loadcontent(Microsoft.Xna.Framework.Content.ContentManager content)
         {
@@ -126,22 +128,23 @@ namespace OlmoSpil
             #region Powerup Conditions
             if (powerOn == true) // If a PowerUp is collected
             {
+                usedPower = false;
                 if (usedPower == true)
                 {
                     if (powerUp == PowerType.Speed)
                     {
                         if (duration <= 0) // When the durations hits 0
                         {
-                            speed = 1; // Resets the player's speed to 100
+                            speed = 100; // Resets the player's speed to 100
                             powerOn = false; // resets the player's powerOn to false
                         }
                         else // Effect, while the duration is not 0
                         {
                             if (duration == 50) // Only affects the player ONE time, when the duration is at max
                             {
-                                speed = speed * 2; // Increases the Player's speed with 50
+                                speed = speed + 200; // Increases the Player's speed with 50
                             }
-                            duration -= 2f; // How fast the duration depletes
+                            duration -= 0.2f; // How fast the duration depletes
                         }
                     }
                     if (powerUp == PowerType.StunBall)
@@ -186,19 +189,19 @@ namespace OlmoSpil
             {
                 if (keystate.IsKeyDown(Keys.Left))
                 {
-                    velocity.X = -3f * speed;
+                    velocity.X = -3f;
                 }
                 if (keystate.IsKeyDown(Keys.Right))
                 {
-                    velocity.X = 3f * speed;
+                    velocity.X = 3f;
                 }
                 if (keystate.IsKeyDown(Keys.Up))
                 {
-                    velocity.Y = -3f * speed;
+                    velocity.Y = -3f;
                 }
                 if (keystate.IsKeyDown(Keys.Down))
                 {
-                    velocity.Y = 3f * speed;
+                    velocity.Y = 3f;
                 }
                 if (keystate.IsKeyDown(Keys.Space)) //Shoot
                 {
@@ -207,10 +210,6 @@ namespace OlmoSpil
                 if (keystate.IsKeyDown(Keys.C)) //Pwup
                 {
                     UsedPower = true;
-                }
-                else
-                {
-                    UsedPower = false;
                 }
             }
             else
