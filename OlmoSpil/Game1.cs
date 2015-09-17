@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 namespace OlmoSpil
 {
+    //Fag!!!!
     /// <summary>
     /// This is the main type for your game.
     /// </summary>

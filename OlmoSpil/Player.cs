@@ -77,6 +77,7 @@ namespace OlmoSpil
         public Player(Vector2 position, int frames, string name, float speed, PlayerId playerId, int team)
             : base(position, frames)
         {
+            //Fag
             this.name = name;
             this.life = 1;
             this.playerId = playerId;
