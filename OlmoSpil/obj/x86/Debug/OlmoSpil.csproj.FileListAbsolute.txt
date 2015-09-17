@@ -1,5 +1,4 @@
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Ball.png
-C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Post.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\PowerUp_DeadBall_Skull.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\PowerUp_Heart.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\PowerUp_Lightning.png
@@ -70,3 +69,4 @@ C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.XInput.xm
 C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.RawInput.xml
 C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\obj\x86\Debug\OlmoSpil.csprojResolveAssemblyReference.cache
+C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Turret.png

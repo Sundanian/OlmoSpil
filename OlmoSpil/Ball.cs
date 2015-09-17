@@ -30,7 +30,7 @@ namespace OlmoSpil
         }
         public override void OnCollision(GameObject other)
         {
-            if (other is Ball || other is Player || other is Post) // If the obj is Ball or Player
+            if (other is Ball || other is Player || other is Turret) // If the obj is Ball or Player
             {
                 if (this.position == other.Position)
                 {
@@ -127,7 +127,7 @@ namespace OlmoSpil
                     }
                 }
             }
-            else if (this.position.X > Game1.Graphics.GraphicsDevice.Viewport.Width / 2 + 220) //East
+            else if (this.position.X > Game1.Graphics.GraphicsDevice.Viewport.Width / 2 + 260) //East
             {
                 foreach (GameObject go in Game1.AllObjects)
                 {
@@ -138,7 +138,7 @@ namespace OlmoSpil
                     }
                 }
             }
-            else if (this.position.Y > Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 + 200) //South
+            else if (this.position.Y > Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 + 240) //South
             {
                 foreach (GameObject go in Game1.AllObjects)
                 {

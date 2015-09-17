@@ -77,7 +77,7 @@ namespace OlmoSpil
         {
             //Fag
             this.name = name;
-            this.life = 1;
+            this.life = 20;
             this.playerId = playerId;
             this.team = team;
             this.position = position;
@@ -106,7 +106,7 @@ namespace OlmoSpil
         }
         public override void OnCollision(GameObject other)
         {
-            if (other is Post)
+            if (other is Turret)
             {
                 this.position = lastPosition;
             }
@@ -316,31 +316,31 @@ namespace OlmoSpil
                 switch (team)
                 {
                     case 1:
-                        for (int i = 0; i < 10; i++)
+                        for (int i = 0; i < 9; i++)
                         {
-                            Post g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 200 + (40 * i), Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 + 200), 1);
+                            Turret g = new Turret(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 180 + (40 * i), Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 + 200), 1, 5);
                             Game1.AddObjects.Add(g);
                         }
                         break;
                     case 2:
-                        for (int i = 0; i < 10; i++)
+                        for (int i = 0; i < 9; i++)
                         {
-                            Post g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 + 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 200 + (40 * i)), 1);
+                            Turret g = new Turret(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 + 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 180 + (40 * i)), 1, 5);
                             Game1.AddObjects.Add(g);
                         }
 
                         break;
                     case 3:
-                        for (int i = 0; i < 10; i++)
+                        for (int i = 0; i < 9; i++)
                         {
-                            Post g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 200 + (40 * i), Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 - 200), 1);
+                            Turret g = new Turret(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 180 + (40 * i), Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 - 200), 1, 5);
                             Game1.AddObjects.Add(g);
                         }
                         break;
                     case 4:
-                        for (int i = 0; i < 10; i++)
+                        for (int i = 0; i < 9; i++)
                         {
-                            Post g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 - 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 200 + (40 * i)), 1);
+                            Turret g = new Turret(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 - 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 180 + (40 * i)), 1, 5);
                             Game1.AddObjects.Add(g);
                         }
                         break;

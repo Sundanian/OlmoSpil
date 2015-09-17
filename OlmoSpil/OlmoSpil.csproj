@@ -46,12 +46,14 @@
     <Compile Include="GameObject.cs" />
     <Compile Include="Opponent.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="Post.cs" />
     <Compile Include="PowerUp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screen\InGame.cs" />
+    <Compile Include="Screen\Lobby.cs" />
+    <Compile Include="Screen\Screen.cs" />
     <Compile Include="Server.cs" />
-    <Compile Include="Win.cs" />
+    <Compile Include="Turret.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -64,7 +66,7 @@
     <Content Include="Content\Sprites\Ball.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sprites\Post.png">
+    <Content Include="Content\Sprites\Turret.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\PowerUp_DeadBall_Skull.png">

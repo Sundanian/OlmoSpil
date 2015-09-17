@@ -36,17 +36,13 @@ namespace OlmoSpil
             Game1.AddObjects.Add(player3);
             Game1.AddObjects.Add(player4);
             #region Level
-            //Center
-            Post g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20), 1);
+            Turret g = new Turret(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 - 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 - 200), 1, 1);
             Game1.AddObjects.Add(g);
-
-            g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 - 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 - 200), 1);
+            g = new Turret(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 + 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 - 200), 1, 2);
             Game1.AddObjects.Add(g);
-            g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 + 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 - 200), 1);
+            g = new Turret(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 - 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 + 200), 1, 3);
             Game1.AddObjects.Add(g);
-            g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 - 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 + 200), 1);
-            Game1.AddObjects.Add(g);
-            g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 + 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 + 200), 1);
+            g = new Turret(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 + 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 + 200), 1, 4);
             Game1.AddObjects.Add(g);
             #endregion
             base.LoadContent(content);
@@ -75,7 +71,6 @@ namespace OlmoSpil
                 }
             }
             SpawnPowerUp();
-            SpawnBalls();
             base.Update(gameTime);
         }
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
@@ -142,23 +137,6 @@ namespace OlmoSpil
                 }
 
             }
-        }
-        private void SpawnBalls()
-        {
-            if (timer <= 0)
-            {
-                int x = +rnd.Next(-1, 2);
-                int y = +rnd.Next(-1, 2);
-                do
-                {
-                    x = +rnd.Next(-1, 2);
-                    y = +rnd.Next(-1, 2);
-                } while (x == 0 || y == 0);
-                Ball ball = new Ball(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 16 + x, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 16 + y), 1);
-                Game1.AddObjects.Add(ball);
-                timer = 1000;
-            }
-            timer--;
         }
     }
 }
