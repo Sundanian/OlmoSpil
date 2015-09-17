@@ -13,7 +13,6 @@ namespace OlmoSpil
         public Post(Vector2 position, int frames)
             : base(position, frames)
         {
-            this.type = type;
         }
         public override void Loadcontent(Microsoft.Xna.Framework.Content.ContentManager content)
         {
