@@ -72,25 +72,16 @@ namespace OlmoSpil
             get { return life; }
             set { life = value; }
         }
-
-<<<<<<< HEAD
-
-
-        public Player(Vector2 position, int frames, string name, float speed, PlayerId playerId, int team) : base(position, frames)
-=======
         public Player(Vector2 position, int frames, string name, float speed, PlayerId playerId, int team)
             : base(position, frames)
->>>>>>> 3e290c59da5cf2c43aec1ccbb27d0f38e82fcae1
         {
+            //Fag
             this.name = name;
             this.life = 1;
             this.playerId = playerId;
             this.team = team;
-<<<<<<< HEAD
             this.position = position;
-=======
             this.speed = 1;
->>>>>>> 3e290c59da5cf2c43aec1ccbb27d0f38e82fcae1
         }
         public override void Loadcontent(Microsoft.Xna.Framework.Content.ContentManager content)
         {
@@ -158,7 +149,6 @@ namespace OlmoSpil
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
-<<<<<<< HEAD
             if (playerId == PlayerId.Player1)
             {
                 spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y - 32), Color.Red);
@@ -176,9 +166,7 @@ namespace OlmoSpil
             {
                 spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y - 32), Color.Red);
             }
-=======
             spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y - 32), Color.Red);
->>>>>>> 3e290c59da5cf2c43aec1ccbb27d0f38e82fcae1
             base.Draw(spriteBatch);
         }
         public override void Update(GameTime gameTime)
@@ -251,7 +239,6 @@ namespace OlmoSpil
             {
                 if (playerId == PlayerId.Player1)
                 {
-<<<<<<< HEAD
                     if (keystate.IsKeyDown(Keys.Left))
                     {
                         velocity.X = -5f;
@@ -260,13 +247,9 @@ namespace OlmoSpil
                     {
                         velocity.X = 5f;
                     }
-=======
-                    velocity.X = -3f * speed;
->>>>>>> 3e290c59da5cf2c43aec1ccbb27d0f38e82fcae1
                 }
                 if (playerId == PlayerId.Player2)
                 {
-<<<<<<< HEAD
                     if (keystate.IsKeyDown(Keys.Left))
                     {
                         velocity.Y = -5f;
@@ -275,13 +258,9 @@ namespace OlmoSpil
                     {
                         velocity.Y = 5f;
                     }
-=======
-                    velocity.X = 3f * speed;
->>>>>>> 3e290c59da5cf2c43aec1ccbb27d0f38e82fcae1
                 }
                 if (playerId == PlayerId.Player3)
                 {
-<<<<<<< HEAD
                     if (keystate.IsKeyDown(Keys.Left))
                     {
                         velocity.X = -5f;
@@ -290,13 +269,9 @@ namespace OlmoSpil
                     {
                         velocity.X = 5f;
                     }
-=======
-                    velocity.Y = -3f * speed;
->>>>>>> 3e290c59da5cf2c43aec1ccbb27d0f38e82fcae1
                 }
                 if (playerId == PlayerId.Player4)
                 {
-<<<<<<< HEAD
                     if (keystate.IsKeyDown(Keys.Left))
                     {
                         velocity.Y = -5f;
@@ -305,9 +280,6 @@ namespace OlmoSpil
                     {
                         velocity.Y = 5f;
                     }
-=======
-                    velocity.Y = 3f * speed;
->>>>>>> 3e290c59da5cf2c43aec1ccbb27d0f38e82fcae1
                 }
 
                 if (keystate.IsKeyDown(Keys.Space)) //Shoot
