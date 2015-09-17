@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace OlmoSpil
         private static bool powerUpSpawned = false;
         private static Random rnd = new Random();
         private int timer = 10;
+        private bool win;
         public static bool PowerUpSpawned
         {
             get { return InGame.powerUpSpawned; }
@@ -51,12 +53,45 @@ namespace OlmoSpil
         }
         public override void Update(GameTime gameTime)
         {
+            int tmp = 0;
+            foreach (GameObject go in Game1.AllObjects)
+            {
+                if (go is Player)
+                {
+                    tmp++;
+                }
+            }
+            if (tmp == 1)
+            {
+                win = true;
+            }
+            if (win)
+            {
+                KeyboardState keystate = Keyboard.GetState();
+                if (keystate.IsKeyDown(Keys.Escape) || keystate.IsKeyDown(Keys.Back))
+                {
+                    Game1.RoomChange = true;
+                    Game1.currentScreen.Type = "Lobby";
+                }
+            }
             SpawnPowerUp();
             SpawnBalls();
             base.Update(gameTime);
         }
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
+            if (win)
+            {
+                int tmp = 0;
+                foreach (GameObject go in Game1.AllObjects)
+                {
+                    if (go is Player)
+                    {
+                        tmp = (go as Player).Team;
+                    }
+                }
+                spriteBatch.DrawString(Game1.Sf, "Player " + tmp + " Won the game! Press Esc to return to the lobby", Vector2.Zero, Color.Red);
+            }
             base.Draw(spriteBatch);
         }
         public void SpawnPowerUp()

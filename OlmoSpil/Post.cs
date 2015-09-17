@@ -9,7 +9,6 @@ namespace OlmoSpil
 {
     class Post : GameObject
     {
-        int type;
         public Post(Vector2 position, int frames)
             : base(position, frames)
         {

@@ -9,7 +9,6 @@ namespace OlmoSpil
 {
     class Lobby : Screen
     {
-        string ip;
         public Lobby()
             : base()
         {

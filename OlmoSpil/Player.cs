@@ -77,7 +77,7 @@ namespace OlmoSpil
         {
             //Fag
             this.name = name;
-            this.life = 20;
+            this.life = 1;
             this.playerId = playerId;
             this.team = team;
             this.position = position;
