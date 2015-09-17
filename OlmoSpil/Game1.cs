@@ -97,8 +97,14 @@ namespace OlmoSpil
                 go.Loadcontent(Content);
             }
 
-            Player p = new Player(new Vector2(GraphicsDevice.Viewport.Width / 2 - 16, GraphicsDevice.Viewport.Height / 2 - 16 + 200), 1, "Bob", 1, PlayerId.Player1, 1);
-            AddObjects.Add(p);
+            Player player1 = new Player(new Vector2(GraphicsDevice.Viewport.Width / 2 - 30, GraphicsDevice.Viewport.Height / 2 - 16 + 175), 1, "Bob", 1, PlayerId.Player1, 1);
+            Player player2 = new Player(new Vector2(140, GraphicsDevice.Viewport.Height / 2 - 50), 1, "Bob", 1, PlayerId.Player2, 4);
+            Player player3 = new Player(new Vector2(350, -25), 1, "Bob", 1, PlayerId.Player3, 3);
+            Player player4 = new Player(new Vector2(570, GraphicsDevice.Viewport.Height / 2 - 50), 1, "Bob", 1, PlayerId.Player4, 2);
+            AddObjects.Add(player1);
+            AddObjects.Add(player2);
+            AddObjects.Add(player3);
+            AddObjects.Add(player4);
             #region Level
             //Center
             Post g = new Post(new Vector2(GraphicsDevice.Viewport.Width / 2 - 20, GraphicsDevice.Viewport.Height / 2 - 20), 1);
@@ -185,7 +191,7 @@ namespace OlmoSpil
                     int choosePower = rnd.Next(1, 4);
                     float xCoord = rnd.Next(100, 250); // Should be set to be within the screen/Level
                     float yCoord = rnd.Next(100, 250); // Should be set to be within the screen/Level
-                    Vector2 position = new Vector2(xCoord, yCoord);
+                    Vector2 position1 = new Vector2(xCoord, yCoord);
                     switch (choosePower)
                     {
 
@@ -195,25 +201,25 @@ namespace OlmoSpil
                          */
                         case 1:
                             {
-                                addObjects.Add(new PowerUp(@"PowerUp_Lightning.png", position, 1, PowerType.Speed));
+                                addObjects.Add(new PowerUp(@"PowerUp_Lightning.png", position1, 1, PowerType.Speed));
                                 powerUpSpawned = true;
                             }
                             break;
                         case 2:
                             {
-                                addObjects.Add(new PowerUp(@"PowerUp_Heart.png", position, 1, PowerType.StickyBall));
+                                addObjects.Add(new PowerUp(@"PowerUp_Heart.png", position1, 1, PowerType.StickyBall));
                                 powerUpSpawned = true;
                             }
                             break;
                         case 3:
                             {
-                                addObjects.Add(new PowerUp(@"PowerUp_MultiBall.png", position, 1, PowerType.MultiBall));
+                                addObjects.Add(new PowerUp(@"PowerUp_MultiBall.png", position1, 1, PowerType.MultiBall));
                                 powerUpSpawned = true;
                             }
                             break;
                         case 4:
                             {
-                                addObjects.Add(new PowerUp(@"PowerUp_DeadBall_Skull.png", position, 1, PowerType.StunBall));
+                                addObjects.Add(new PowerUp(@"PowerUp_DeadBall_Skull.png", position1, 1, PowerType.StunBall));
                                 powerUpSpawned = true;
                             }
                             break;
