@@ -74,7 +74,7 @@ namespace OlmoSpil
 
         protected override void CreateAnimations(Texture2D texture)
         {
-            CreateAnimation("idle", 1, 0, 0, 40, 40, Vector2.Zero, 1);
+            CreateAnimation("idle", 1, 0, 0, 128, 128, Vector2.Zero, 1);
             PlayAnimation("idle");
         }
 

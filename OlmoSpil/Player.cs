@@ -118,6 +118,7 @@ namespace OlmoSpil
         }
         public override void Update(GameTime gameTime)
         {
+            CheckDeath();
             if (lastBallToHit != null)
             {
                 lastBallToHit.LastPlayerToHit = this;
@@ -220,6 +221,16 @@ namespace OlmoSpil
                 {
                     duration -= 0.3f;
                 }
+            }
+        }
+        private void CheckDeath()
+        {
+            if (life <= 0)
+            {
+                //Send jeg er død til server
+
+                //Fjerner objekt
+                Game1.RemoveObjects.Add(this);
             }
         }
     }
