@@ -67,12 +67,13 @@ namespace OlmoSpil
                 return team;
             }
         }
-
         public int Life
         {
             get { return life; }
             set { life = value; }
         }
+
+
 
         public Player(Vector2 position, int frames, string name, float speed, PlayerId playerId, int team) : base(position, frames)
         {
@@ -80,10 +81,27 @@ namespace OlmoSpil
             this.life = 20;
             this.playerId = playerId;
             this.team = team;
+            this.position = position;
         }
         public override void Loadcontent(Microsoft.Xna.Framework.Content.ContentManager content)
         {
-            texture = content.Load<Texture2D>(@"Sprites/Slime_Player_Blue.png");
+            if (playerId == PlayerId.Player1)
+            {
+                texture = content.Load<Texture2D>(@"Sprites/Slime_Player_Red.png");
+            }
+            else if (playerId == PlayerId.Player2)
+            {
+                texture = content.Load<Texture2D>(@"Sprites/Slime_Player_Blue.png");
+            }
+            else if (playerId == PlayerId.Player3)
+            {
+                texture = content.Load<Texture2D>(@"Sprites/Slime_Player_Green.png");
+            }
+            else if (playerId == PlayerId.Player4)
+            {
+                texture = content.Load<Texture2D>(@"Sprites/Slime_Player_Yellow.png");
+            }
+
             base.Loadcontent(content);
         }
         public override void OnCollision(GameObject other)
@@ -108,12 +126,46 @@ namespace OlmoSpil
         }
         protected override void CreateAnimations(Texture2D texture)
         {
-            CreateAnimation("idle", 1, 0, 0, 100, 50, Vector2.Zero, 1);
-            PlayAnimation("idle");
+            if (playerId == PlayerId.Player1)
+            {
+                CreateAnimation("idle", 1, 0, 0, 100, 50, Vector2.Zero, 1);
+                PlayAnimation("idle");
+            }
+            else if (playerId == PlayerId.Player2)
+            {
+                CreateAnimation("idle", 1, 0, 0, 100, 100, Vector2.Zero, 1);
+                PlayAnimation("idle");
+            }
+            else if (playerId == PlayerId.Player3)
+            {
+                CreateAnimation("idle", 1, 0, 0, 100, 100, Vector2.Zero, 1);
+                PlayAnimation("idle");
+            }
+            else if (playerId == PlayerId.Player4)
+            {
+                CreateAnimation("idle", 1, 0, 0, 100, 100, Vector2.Zero, 1);
+                PlayAnimation("idle");
+            }
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y-32), Color.Red);
+            if (playerId == PlayerId.Player1)
+            {
+                spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y - 32), Color.Red);
+            }
+
+            else if (playerId == PlayerId.Player2)
+            {
+                spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y - 32), Color.Red);
+            }
+            else if (playerId == PlayerId.Player3)
+            {
+                spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y + 110), Color.Red);
+            }
+            else if (playerId == PlayerId.Player4)
+            {
+                spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y - 32), Color.Red);
+            }
             base.Draw(spriteBatch);
         }
         public override void Update(GameTime gameTime)
@@ -184,22 +236,51 @@ namespace OlmoSpil
             velocity = Vector2.Zero;
             if (!powerStunned)
             {
-                if (keystate.IsKeyDown(Keys.Left))
+                if (playerId == PlayerId.Player1)
                 {
-                    velocity.X = -3f;
+                    if (keystate.IsKeyDown(Keys.Left))
+                    {
+                        velocity.X = -5f;
+                    }
+                    if (keystate.IsKeyDown(Keys.Right))
+                    {
+                        velocity.X = 5f;
+                    }
                 }
-                if (keystate.IsKeyDown(Keys.Right))
+                if (playerId == PlayerId.Player2)
                 {
-                    velocity.X = 3f;
+                    if (keystate.IsKeyDown(Keys.Left))
+                    {
+                        velocity.Y = -5f;
+                    }
+                    if (keystate.IsKeyDown(Keys.Right))
+                    {
+                        velocity.Y = 5f;
+                    }
                 }
-                if (keystate.IsKeyDown(Keys.Up))
+                if (playerId == PlayerId.Player3)
                 {
-                    velocity.Y = -3f;
+                    if (keystate.IsKeyDown(Keys.Left))
+                    {
+                        velocity.X = -5f;
+                    }
+                    if (keystate.IsKeyDown(Keys.Right))
+                    {
+                        velocity.X = 5f;
+                    }
                 }
-                if (keystate.IsKeyDown(Keys.Down))
+                if (playerId == PlayerId.Player4)
                 {
-                    velocity.Y = 3f;
+                    if (keystate.IsKeyDown(Keys.Left))
+                    {
+                        velocity.Y = -5f;
+                    }
+                    if (keystate.IsKeyDown(Keys.Right))
+                    {
+                        velocity.Y = 5f;
+                    }
                 }
+
                 if (keystate.IsKeyDown(Keys.Space)) //Shoot
                 {
 

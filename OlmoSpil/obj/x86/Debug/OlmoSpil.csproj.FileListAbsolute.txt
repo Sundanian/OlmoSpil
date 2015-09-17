@@ -139,3 +139,4 @@ C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\b
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Red.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\Sprites\Slime_Player_Blue.png
 C:\Users\ThomasKrog\Dropbox\EADania\Tredje Semester\Netværk\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\SpriteFont.xnb
+C:\Users\Nikolaj\Documents\OlmoSpil\OlmoSpil\bin\Windows\Debug\Content\SpriteFont.xnb
