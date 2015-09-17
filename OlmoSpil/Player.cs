@@ -74,10 +74,11 @@ namespace OlmoSpil
             set { life = value; }
         }
 
-        public Player(Vector2 position, int frames, string name, float speed, PlayerId playerId, int team) : base(position, frames)
+        public Player(Vector2 position, int frames, string name, float speed, PlayerId playerId, int team)
+            : base(position, frames)
         {
             this.name = name;
-            this.life = 20;
+            this.life = 1;
             this.playerId = playerId;
             this.team = team;
         }
@@ -95,7 +96,7 @@ namespace OlmoSpil
             if (other is Ball)
             {
                 lastBallToHit = (Ball)other; // Finds which ball was last hit
-                
+
                 //Virker ikke... Den skal have fat i boldens'state, hvor der er aktiveret Deadball på den
                 // og denne if, skal så se om den state er på, for at gøre noget
                 if (powerOn == true && powerUp == PowerType.StunBall)
@@ -113,7 +114,7 @@ namespace OlmoSpil
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y-32), Color.Red);
+            spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y - 32), Color.Red);
             base.Draw(spriteBatch);
         }
         public override void Update(GameTime gameTime)
@@ -172,15 +173,15 @@ namespace OlmoSpil
                         }
                     }
                 }
-                
+
             }
             #endregion
-			position += velocity;
+            position += velocity;
             HandleInput(Keyboard.GetState());
             base.Update(gameTime);
             lastPosition = position;
         }
-		private void HandleInput(KeyboardState keystate)
+        private void HandleInput(KeyboardState keystate)
         {
             velocity = Vector2.Zero;
             if (!powerStunned)
@@ -227,9 +228,44 @@ namespace OlmoSpil
         {
             if (life <= 0)
             {
-                //Send jeg er død til server
+                //Block my side
+                switch (team)
+                {
+                    case 1:
+                        for (int i = 0; i < 20; i++)
+                        {
+                            Post g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 200 + (20 * i), Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 + 200), 1);
+                            Game1.AddObjects.Add(g);
+                        }
+                        break;
+                    case 2:
+                        for (int i = 0; i < 20; i++)
+                        {
+                            Post g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 + 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 200 + (20 * i)), 1);
+                            Game1.AddObjects.Add(g);
+                        }
 
-                //Fjerner objekt
+                        break;
+                    case 3:
+                        for (int i = 0; i < 20; i++)
+                        {
+                            Post g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 200 + (20 * i), Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 - 200), 1);
+                            Game1.AddObjects.Add(g);
+                        }
+                        break;
+                    case 4:
+                        for (int i = 0; i < 20; i++)
+                        {
+                            Post g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 - 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 200 + (20 * i)), 1);
+                            Game1.AddObjects.Add(g);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                //Sent "I am dead" to server
+
+                //Removes this
                 Game1.RemoveObjects.Add(this);
             }
         }
