@@ -68,7 +68,7 @@ namespace OlmoSpil
                 }
             }
             Game1.RemoveObjects.Add(this); // Removes the PowerUp, which is collected from the field
-            Game1.PowerUpSpawned = false; // Resets the PowerUpSpawned, so it can spawn a new PowerUp
+            InGame.PowerUpSpawned = false; // Resets the PowerUpSpawned, so it can spawn a new PowerUp
 
         }
 
