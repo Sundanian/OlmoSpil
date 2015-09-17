@@ -73,15 +73,24 @@ namespace OlmoSpil
             set { life = value; }
         }
 
+<<<<<<< HEAD
 
 
         public Player(Vector2 position, int frames, string name, float speed, PlayerId playerId, int team) : base(position, frames)
+=======
+        public Player(Vector2 position, int frames, string name, float speed, PlayerId playerId, int team)
+            : base(position, frames)
+>>>>>>> 3e290c59da5cf2c43aec1ccbb27d0f38e82fcae1
         {
             this.name = name;
-            this.life = 20;
+            this.life = 1;
             this.playerId = playerId;
             this.team = team;
+<<<<<<< HEAD
             this.position = position;
+=======
+            this.speed = 1;
+>>>>>>> 3e290c59da5cf2c43aec1ccbb27d0f38e82fcae1
         }
         public override void Loadcontent(Microsoft.Xna.Framework.Content.ContentManager content)
         {
@@ -113,7 +122,7 @@ namespace OlmoSpil
             if (other is Ball)
             {
                 lastBallToHit = (Ball)other; // Finds which ball was last hit
-                
+
                 //Virker ikke... Den skal have fat i boldens'state, hvor der er aktiveret Deadball på den
                 // og denne if, skal så se om den state er på, for at gøre noget
                 if (powerOn == true && powerUp == PowerType.StunBall)
@@ -149,6 +158,7 @@ namespace OlmoSpil
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
+<<<<<<< HEAD
             if (playerId == PlayerId.Player1)
             {
                 spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y - 32), Color.Red);
@@ -166,10 +176,14 @@ namespace OlmoSpil
             {
                 spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y - 32), Color.Red);
             }
+=======
+            spriteBatch.DrawString(Game1.Sf, "Lives: " + life, new Vector2(this.position.X, this.position.Y - 32), Color.Red);
+>>>>>>> 3e290c59da5cf2c43aec1ccbb27d0f38e82fcae1
             base.Draw(spriteBatch);
         }
         public override void Update(GameTime gameTime)
         {
+            CheckDeath();
             if (lastBallToHit != null)
             {
                 lastBallToHit.LastPlayerToHit = this;
@@ -177,23 +191,22 @@ namespace OlmoSpil
             #region Powerup Conditions
             if (powerOn == true) // If a PowerUp is collected
             {
-                usedPower = false;
                 if (usedPower == true)
                 {
                     if (powerUp == PowerType.Speed)
                     {
                         if (duration <= 0) // When the durations hits 0
                         {
-                            speed = 100; // Resets the player's speed to 100
+                            speed = 1; // Resets the player's speed to 100
                             powerOn = false; // resets the player's powerOn to false
                         }
                         else // Effect, while the duration is not 0
                         {
                             if (duration == 50) // Only affects the player ONE time, when the duration is at max
                             {
-                                speed = speed + 200; // Increases the Player's speed with 50
+                                speed = speed * 2; // Increases the Player's speed with 50
                             }
-                            duration -= 0.2f; // How fast the duration depletes
+                            duration -= 2f; // How fast the duration depletes
                         }
                     }
                     if (powerUp == PowerType.StunBall)
@@ -223,21 +236,22 @@ namespace OlmoSpil
                         }
                     }
                 }
-                
+
             }
             #endregion
-			position += velocity;
+            position += velocity;
             HandleInput(Keyboard.GetState());
             base.Update(gameTime);
             lastPosition = position;
         }
-		private void HandleInput(KeyboardState keystate)
+        private void HandleInput(KeyboardState keystate)
         {
             velocity = Vector2.Zero;
             if (!powerStunned)
             {
                 if (playerId == PlayerId.Player1)
                 {
+<<<<<<< HEAD
                     if (keystate.IsKeyDown(Keys.Left))
                     {
                         velocity.X = -5f;
@@ -246,9 +260,13 @@ namespace OlmoSpil
                     {
                         velocity.X = 5f;
                     }
+=======
+                    velocity.X = -3f * speed;
+>>>>>>> 3e290c59da5cf2c43aec1ccbb27d0f38e82fcae1
                 }
                 if (playerId == PlayerId.Player2)
                 {
+<<<<<<< HEAD
                     if (keystate.IsKeyDown(Keys.Left))
                     {
                         velocity.Y = -5f;
@@ -257,9 +275,13 @@ namespace OlmoSpil
                     {
                         velocity.Y = 5f;
                     }
+=======
+                    velocity.X = 3f * speed;
+>>>>>>> 3e290c59da5cf2c43aec1ccbb27d0f38e82fcae1
                 }
                 if (playerId == PlayerId.Player3)
                 {
+<<<<<<< HEAD
                     if (keystate.IsKeyDown(Keys.Left))
                     {
                         velocity.X = -5f;
@@ -268,9 +290,13 @@ namespace OlmoSpil
                     {
                         velocity.X = 5f;
                     }
+=======
+                    velocity.Y = -3f * speed;
+>>>>>>> 3e290c59da5cf2c43aec1ccbb27d0f38e82fcae1
                 }
                 if (playerId == PlayerId.Player4)
                 {
+<<<<<<< HEAD
                     if (keystate.IsKeyDown(Keys.Left))
                     {
                         velocity.Y = -5f;
@@ -279,6 +305,9 @@ namespace OlmoSpil
                     {
                         velocity.Y = 5f;
                     }
+=======
+                    velocity.Y = 3f * speed;
+>>>>>>> 3e290c59da5cf2c43aec1ccbb27d0f38e82fcae1
                 }
 
                 if (keystate.IsKeyDown(Keys.Space)) //Shoot
@@ -288,6 +317,10 @@ namespace OlmoSpil
                 if (keystate.IsKeyDown(Keys.C)) //Pwup
                 {
                     UsedPower = true;
+                }
+                else
+                {
+                    UsedPower = false;
                 }
             }
             else
@@ -301,6 +334,51 @@ namespace OlmoSpil
                 {
                     duration -= 0.3f;
                 }
+            }
+        }
+        private void CheckDeath()
+        {
+            if (life <= 0)
+            {
+                //Block my side
+                switch (team)
+                {
+                    case 1:
+                        for (int i = 0; i < 20; i++)
+                        {
+                            Post g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 200 + (20 * i), Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 + 200), 1);
+                            Game1.AddObjects.Add(g);
+                        }
+                        break;
+                    case 2:
+                        for (int i = 0; i < 20; i++)
+                        {
+                            Post g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 + 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 200 + (20 * i)), 1);
+                            Game1.AddObjects.Add(g);
+                        }
+
+                        break;
+                    case 3:
+                        for (int i = 0; i < 20; i++)
+                        {
+                            Post g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 200 + (20 * i), Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 20 - 200), 1);
+                            Game1.AddObjects.Add(g);
+                        }
+                        break;
+                    case 4:
+                        for (int i = 0; i < 20; i++)
+                        {
+                            Post g = new Post(new Vector2(Game1.Graphics.GraphicsDevice.Viewport.Width / 2 - 20 - 200, Game1.Graphics.GraphicsDevice.Viewport.Height / 2 - 200 + (20 * i)), 1);
+                            Game1.AddObjects.Add(g);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                //Sent "I am dead" to server
+
+                //Removes this
+                Game1.RemoveObjects.Add(this);
             }
         }
     }

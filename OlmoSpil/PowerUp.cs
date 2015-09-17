@@ -36,7 +36,7 @@ namespace OlmoSpil
                             Player tempPlayer = (Player)other;
                             tempPlayer.PowerOn = true; // Sets the player's bool (powerOn) to true.
                             tempPlayer.PowerUp = this.powerType; // Sets this powerType to the Player
-                            tempPlayer.Duration = 5000f; // Sets the duration of the powerUp, to the player
+                            tempPlayer.Duration = 50f; // Sets the duration of the powerUp, to the player
                         }
                         break;
                     case PowerType.StunBall:
@@ -44,7 +44,7 @@ namespace OlmoSpil
                             Player tempPlayer = (Player)other;
                             tempPlayer.PowerOn = true; // Sets the player's bool (powerOn) to true.
                             tempPlayer.PowerUp = this.powerType; // Sets this powerType to the Player
-                            tempPlayer.Duration = 5000f; // Sets the duration of the powerUp, to the player
+                            tempPlayer.Duration = 50f; // Sets the duration of the powerUp, to the player
                         }
                         break;
                     case PowerType.StickyBall:
@@ -52,7 +52,7 @@ namespace OlmoSpil
                             Player tempPlayer = (Player)other;
                             tempPlayer.PowerOn = true; // Sets the player's bool (powerOn) to true.
                             tempPlayer.PowerUp = this.powerType; // Sets this powerType to the Player
-                            tempPlayer.Duration = 5000f; // Sets the duration of the powerUp, to the player
+                            tempPlayer.Duration = 50f; // Sets the duration of the powerUp, to the player
                         }
                         break;
                     case PowerType.MultiBall:
@@ -60,7 +60,7 @@ namespace OlmoSpil
                             Player tempPlayer = (Player)other;
                             tempPlayer.PowerOn = true; // Sets the player's bool (powerOn) to true.
                             tempPlayer.PowerUp = this.powerType; // Sets this powerType to the Player
-                            tempPlayer.Duration = 5000f; // Sets the duration of the powerUp, to the player
+                            tempPlayer.Duration = 50f; // Sets the duration of the powerUp, to the player
                         }
                         break;
                     default:
@@ -74,7 +74,7 @@ namespace OlmoSpil
 
         protected override void CreateAnimations(Texture2D texture)
         {
-            CreateAnimation("idle", 1, 0, 0, 40, 40, Vector2.Zero, 1);
+            CreateAnimation("idle", 1, 0, 0, 128, 128, Vector2.Zero, 1);
             PlayAnimation("idle");
         }
 

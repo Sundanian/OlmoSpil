@@ -9,14 +9,18 @@ namespace OlmoSpil
 {
     class Post : GameObject
     {
+        int type;
         public Post(Vector2 position, int frames)
             : base(position, frames)
         {
-
+            this.type = type;
         }
         public override void Loadcontent(Microsoft.Xna.Framework.Content.ContentManager content)
         {
+
             texture = content.Load<Texture2D>(@"Sprites/Post.png");
+
+
             base.Loadcontent(content);
         }
 
@@ -27,8 +31,11 @@ namespace OlmoSpil
 
         protected override void CreateAnimations(Texture2D texture)
         {
+
             CreateAnimation("idle", 1, 0, 0, 40, 40, Vector2.Zero, 1);
             PlayAnimation("idle");
+
+
         }
     }
 }
