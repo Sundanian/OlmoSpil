@@ -92,7 +92,7 @@ namespace OlmoSpil
         {
             if (powerUpSpawned == false) //If there is NOT a powerUp on the field
             {
-                int x = rnd.Next(0, 1000);
+                int x = rnd.Next(0, 250);
                 if (x == 1)
                 {
                     int choosePower = rnd.Next(1, 4);
